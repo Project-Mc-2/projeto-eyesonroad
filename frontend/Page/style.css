@@ -1,7 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
 .container {
@@ -9,66 +14,122 @@ body {
     height: 100vh;
 }
 
+/* ESQUERDA */
 .left {
-    width: 40%;
-    background-color: #061a44;
-    color: white;
+    width: 38%;
+    background-color: #061836;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 22px;
 }
 
 .left h2 {
-    margin-bottom: 20px;
+    color: #cbd5e1;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
+/* INPUT COM ÍCONE */
 .input-box {
-    width: 70%;
-    margin-bottom: 15px;
+    width: 75%;
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #061836;
+    font-size: 18px;
 }
 
 .input-box input {
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 14px 14px 14px 40px;
+    border-radius: 12px;
     border: none;
-    background-color: #d9d9d9;
+    background-color: #cbd5e1;
+    color: #061836;
+    font-size: 15px;
+    outline: none;
 }
 
-button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
+/* BOTÃO */
 .login-btn {
-    background-color: #d9d9d9;
     margin-top: 10px;
+    padding: 12px 35px;
+    border-radius: 16px;
+    border: none;
+    background-color: #cbd5e1;
+    color: #061836;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* LADO DIREITO */
+.login-btn:hover {
+    background-color: #b4c2da;
+}
+
+/* DIREITA */
 .right {
-    width: 60%;
-    background: url('login.jpeg') no-repeat center;
+    width: 62%;
+    background: url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2") no-repeat center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
+/* ESCURECIMENTO */
+.right::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* CAIXA CENTRAL COM BLUR */
 .overlay {
-    background-color: rgba(0,0,0,0.5);
-    padding: 30px;
-    border-radius: 20px;
-    color: white;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    
+    background: rgba(6, 24, 54, 0.65);
+    backdrop-filter: blur(8px);
+    padding: 35px 30px;
+    border-radius: 18px;
     text-align: center;
+    color: #e2e8f0;
+    width: 320px;
 }
 
+.overlay h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* BOTÃO DIREITA */
 .create-btn {
-    margin-top: 15px;
-    background-color: #061a44;
-    color: white;
+    padding: 12px 28px;
+    border-radius: 14px;
+    border: none;
+    background-color: #061836;
+    color: #e2e8f0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.create-btn:hover {
+    background-color: #0a2552;
 }
