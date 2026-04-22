@@ -1,45 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Orbitron:wght@400..900&display=swap');
-body {
+
+body{
     margin: 0;
     padding: 0;
     height: 100vh; 
-    align-items: center; 
+    align-items: flex-start; 
     display: flex;
     flex-direction: column;
     justify-content: center;    
-    background-image: url('https://i.pinimg.com/1200x/90/4e/99/904e992ae6a7522572e271a17ede2037.jpg');
+    padding-left: 80px;
+    background-image: url('/Img/ChatGPT\ Image\ 22\ de\ abr.\ de\ 2026\,\ 12_48_11.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+p{
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
 }
 h1 {
     margin-bottom: 20px;
     font-family: "Orbitron", sans-serif;
     color: white;
-    text-shadow: 2px 2px 4px rgba(6, 6, 68, 0.5);
+    margin-bottom: 5px; 
 }
-.buttons {
-    display: flex;
-    gap: 20px;
+.btn-um{
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #0f0339;
+  cursor: pointer;
+  border: 2px solid #e8e8e8;
+  box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
+  margin-right: 20px;
 }
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 15px;
-    border-color: rgba(245, 245, 220, 0.679);
-    background-color: #020c39;
-    color: white;
-    font-family: "Montserrat", sans-serif;
+.btn-dois{
+  font-family: "Montserrat", sans-serif;
+  color: #12032f;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #ffffff;
+  cursor: pointer;
+  border: 2px solid #05022d;
+  box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
+  margin-right: 20px;
 }
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 7px 0;
-    color: white;
-    background-color: #020328;
-    font-family: "Montserrat", sans-serif;
+.btn-dois:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+.btn-dois:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
