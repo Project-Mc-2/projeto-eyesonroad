@@ -28,8 +28,8 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 15px;
-    border-color: beige;
-    background-color: #b21154c9;
+    border-color: rgba(245, 245, 220, 0.679);
+    background-color: #b21154;
     color: white;
     font-family: "Montserrat", sans-serif;
 }
@@ -38,8 +38,8 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 7px 0;
     color: white;
-    background-color: #8d003ba9;
+    background-color: #8d003b;
     font-family: "Montserrat", sans-serif;
 }
