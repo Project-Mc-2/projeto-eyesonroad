@@ -5,82 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Página Login</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.left {
-    width: 40%;
-    background-color: #061a44;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.left h2 {
-    margin-bottom: 20px;
-}
-
-.input-box {
-    width: 70%;
-    margin-bottom: 15px;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: #d9d9d9;
-}
-
-button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.login-btn {
-    background-color: #d9d9d9;
-    margin-top: 10px;
-}
-
-/* LADO DIREITO */
-.right {
-    width: 60%;
-    background: url('login.jpeg') no-repeat center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay {
-    background-color: rgba(0,0,0,0.5);
-    padding: 30px;
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-}
-
-.create-btn {
-    margin-top: 15px;
-    background-color: #061a44;
-    color: white;
-}
-</style>
-
 </head>
 <body>
 
@@ -114,27 +38,6 @@ button {
     </div>
 
 </div>
-
-<script>
-function logar() {
-    let cpf = document.getElementById("cpf").value;
-    let placa = document.getElementById("placa").value;
-    let senha = document.getElementById("senha").value;
-
-    if (cpf === "" || placa === "" || senha === "") {
-        alert("Preencha todos os campos!");
-        return;
-    }
-
-    // COLOQUE AQUI O LINK DA PÁGINA DEPOIS DO LOGIN
-    window.location.href = "";
-}
-
-function criarConta() {
-    // COLOQUE AQUI O LINK DA PÁGINA ANTERIOR / CADASTRO
-    window.location.href = "";
-}
-</script>
 
 </body>
 </html>
