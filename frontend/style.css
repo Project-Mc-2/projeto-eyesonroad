@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Orbitron:wght@400..900&display=swap');
 
 body{
+    background-color: #03011d;
     margin: 0;
     padding: 0;
     height: 100vh; 
