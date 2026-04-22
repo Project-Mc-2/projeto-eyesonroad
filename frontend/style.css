@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;    
-    background-image: url('/Img/Captura\ de\ tela\ 2026-03-27\ 121106.png');
+    background-image: url('https://i.pinimg.com/1200x/90/4e/99/904e992ae6a7522572e271a17ede2037.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@ h1 {
     margin-bottom: 20px;
     font-family: "Orbitron", sans-serif;
     color: white;
-    text-shadow: 2px 2px 4px rgba(161, 39, 104, 0.5);
+    text-shadow: 2px 2px 4px rgba(6, 6, 68, 0.5);
 }
 .buttons {
     display: flex;
@@ -29,7 +29,7 @@ button {
     cursor: pointer;
     border-radius: 15px;
     border-color: rgba(245, 245, 220, 0.679);
-    background-color: #b21154;
+    background-color: #020c39;
     color: white;
     font-family: "Montserrat", sans-serif;
 }
@@ -40,6 +40,6 @@ footer {
     text-align: center;
     padding: 7px 0;
     color: white;
-    background-color: #8d003b;
+    background-color: #020328;
     font-family: "Montserrat", sans-serif;
 }
