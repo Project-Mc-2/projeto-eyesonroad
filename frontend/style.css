@@ -38,6 +38,7 @@ h1 {
   border: 2px solid #e8e8e8;
   box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
   margin-right: 20px;
+  text-decoration: none;
 }
 .btn-dois{
   font-family: "Montserrat", sans-serif;
@@ -50,6 +51,7 @@ h1 {
   border: 2px solid #05022d;
   box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
   margin-right: 20px;
+  text-decoration: none;
 }
 .btn-dois:active {
   color: #666;
