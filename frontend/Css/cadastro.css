@@ -5,7 +5,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Tela cheia sem scroll */
 body, html {
     height: 100%;
     width: 100%;
@@ -18,7 +17,6 @@ body, html {
     height: 100vh;
 }
 
-/* --- LADO ESQUERDO --- */
 .left-panel {
     flex: 1;
     background-image: url('/Img/image.png');
@@ -73,7 +71,6 @@ body, html {
     transform: scale(1.05);
 }
 
-/* --- LADO DIREITO --- */
 .right-panel {
     flex: 1;
     background-color: #010932;
@@ -101,7 +98,7 @@ body, html {
 .input-group {
     display: flex;
     align-items: center;
-    background-color: #e4e5f5;
+    background-color: #D4E7FF;
     border-radius: 10px;
     padding: 12px 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -148,7 +145,6 @@ body, html {
     background-color: #1a2a6c;
 }
 
-/* Responsivo */
 @media (max-width: 800px) {
     .main-container {
         flex-direction: column;
