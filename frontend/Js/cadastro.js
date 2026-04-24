@@ -1,3 +1,8 @@
+
+function irLogin() {
+    window.location.href = "login.html"; 
+}
+
 function cadastrar() {
     let nome = document.getElementById("nome").value;
     let email = document.getElementById("email").value;
@@ -7,14 +12,10 @@ function cadastrar() {
 
     if (!nome || !email || !cpf || !placa || !senha) {
         alert("Preencha todos os campos!");
-        return;
+        return false;
     }
 
-    alert("Cadastro realizado!");
+    alert("Conta cadastrada com sucesso!");
 
-    window.location.href = "login.html";
-}
-
-function voltarLogin() {
-    window.location.href = "login.html";
+    return false;
 }
