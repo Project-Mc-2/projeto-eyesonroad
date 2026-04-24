@@ -21,7 +21,7 @@ body, html {
 /* --- LADO ESQUERDO --- */
 .left-panel {
     flex: 1;
-    background-image: url('https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=1000&auto=format&fit=crop');
+    background-image: url('/Img/image.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -40,7 +40,7 @@ body, html {
 }
 
 .welcome-box {
-    background-color: rgba(10, 15, 45, 0.8);
+    background-color: rgba(179, 188, 235, 0.059);
     backdrop-filter: blur(5px);
     padding: 30px;
     border-radius: 15px;
@@ -76,7 +76,7 @@ body, html {
 /* --- LADO DIREITO --- */
 .right-panel {
     flex: 1;
-    background-color: #f4f7fa;
+    background-color: #010932;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,7 +85,7 @@ body, html {
 }
 
 .right-panel h1 {
-    color: #070a1a;
+    color: #ffffff;
     font-size: 2rem;
     margin-bottom: 30px;
 }
@@ -101,7 +101,7 @@ body, html {
 .input-group {
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #e4e5f5;
     border-radius: 10px;
     padding: 12px 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -131,7 +131,7 @@ body, html {
 }
 
 .submit-btn {
-    background-color: #070d2b;
+    background-color: #25316b;
     color: #ffffff;
     border: none;
     padding: 15px;
