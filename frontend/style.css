@@ -29,14 +29,13 @@ h1 {
 }
 .btn-um{
   font-family: "Montserrat", sans-serif;
-
+  color: #ffffff;
   padding: 0.7em 1.7em;
   font-size: 18px;
   border-radius: 0.5em;
   background: #0f0339;
   cursor: pointer;
   border: 2px solid #e8e8e8;
-  box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
   margin-right: 20px;
   text-decoration: none;
 }
@@ -49,7 +48,6 @@ h1 {
   background: #ffffff;
   cursor: pointer;
   border: 2px solid #05022d;
-  box-shadow: 3px 3px 9px #c5c5c5, -1px -3px 12px #ffffff;
   margin-right: 20px;
   text-decoration: none;
 }
