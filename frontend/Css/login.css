@@ -10,17 +10,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Gradiente igual ao protótipo */
     background: linear-gradient(
         120deg,
-        #d9d9d9 0%,
-        #bcd3dd 40%,
-        #6ea0b8 100%
+        #092e79 0%,
+        #053245 40%,
+        #042e40 100%
     );
 }
 
-/* Container central */
 .container {
     display: flex;
     justify-content: center;
@@ -29,23 +26,23 @@ body {
 
 .login-box {
     background: #f3f3f3;
-    padding: 40px;
-    width: 380px; /* AQUI aumentamos */
+    padding: 60px;
+    width: 410px; 
     border-radius: 16px;
     text-align: center;
 
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* título maior */
+
 .login-box h1 {
     margin-bottom: 25px;
     font-size: 28px;
     letter-spacing: 1px;
-    color: #333;
+    color: #060738;
 }
 
-/* inputs maiores */
+
 .login-box input {
     width: 100%;
     padding: 14px;
@@ -62,8 +59,8 @@ body {
     padding: 14px;
     border: none;
     border-radius: 25px;
-    background: #8fb3c4;
-    color: #2d3e46;
+    background: #042332;
+    color: #d8e2e8;
     font-weight: bold;
     font-size: 15px;
     cursor: pointer;
@@ -71,7 +68,7 @@ body {
 }
 
 .login-box button:hover {
-    background: #7aa5b8;
+    background: #09435c;
 }
 
 /* texto inferior ajustado */
