@@ -51,6 +51,10 @@ h1 {
   border: 2px solid #e8e8e8;
   margin-right: 20px;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-um:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
 }
 .btn-dois{
   font-family: "Montserrat", sans-serif;
@@ -63,12 +67,9 @@ h1 {
   border: 2px solid #05022d;
   margin-right: 20px;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
-.btn-dois:active {
-  color: #666;
-  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+.btn-dois:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
 }
-.btn-dois:active {
-  color: #666;
-  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
-}
+
