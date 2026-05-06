@@ -10,12 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-        120deg,
-        #092e79 0%,
-        #053245 40%,
-        #042e40 100%
-    );
+    background-color: #060738;
 }
 
 .container {
@@ -53,7 +48,7 @@ body {
     font-size: 14px;
 }
 
-/* botão maior */
+
 .login-box button {
     width: 100%;
     padding: 14px;
@@ -71,7 +66,6 @@ body {
     background: #09435c;
 }
 
-/* texto inferior ajustado */
 .forgot {
     margin-top: 15px;
     font-size: 13px;
