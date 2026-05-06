@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-<link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Monitor de Sono</title>
+    <link rel="stylesheet" href="/frontend/Css/login.css">
 </head>
-
 <body>
 
-<h2>Logar Conta</h2>
-<div><a href="/pages/cadastrarConta.html" class="voltar-btn">Criar Conta</a></div>
+<div class="container">
+    <div class="login-box">
+        <h1>LOGIN</h1>
 
-<input type="text" id="cpf" placeholder="CPF"><br><br>
-<input type="text" id="placa" placeholder="Placa"><br><br>
-<input type="password" id="senha" placeholder="Senha"><br><br>
+        <form id="loginForm">
+            <input type="text" id="usuario" placeholder="Usuário" required>
+            <input type="password" id="senha" placeholder="Senha" required>
 
-<button onclick="logar()">Logar</button>
-<button onclick="voltar()">Criar Conta</button>
+            <button type="submit">ENTRAR</button>
+        </form>
+
+        <p class="erro" id="erroMsg"></p>
+
+        <p class="forgot">
+            Esqueceu a senha? <a href="#">Clique aqui</a>
+        </p>
+    </div>
+</div>
 
 <script src="login.js"></script>
 </body>
