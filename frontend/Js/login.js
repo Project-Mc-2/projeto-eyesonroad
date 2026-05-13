@@ -1,20 +1,49 @@
-function logar() {
-    let cpf = document.getElementById("cpf").value;
-    let placa = document.getElementById("placa").value;
-    let senha = document.getElementById("senha").value;
+// login.js
 
-    // validação
-    if (cpf === "" || placa === "" || senha === "") {
-        alert("Preencha todos os campos!");
+// Pegando os elementos do HTML
+const form = document.getElementById("loginForm");
+const usuarioInput = document.getElementById("usuario");
+const senhaInput = document.getElementById("senha");
+const erroMsg = document.getElementById("erroMsg");
+
+// Evento ao enviar o formulário
+form.addEventListener("submit", function(event) {
+
+    // Impede o recarregamento da página
+    event.preventDefault();
+
+    // Pegando os valores digitados
+    const usuario = usuarioInput.value.trim();
+    const senha = senhaInput.value.trim();
+
+    // Limpando mensagem de erro anterior
+    erroMsg.textContent = "";
+
+    // Verifica se os campos estão vazios
+    if (usuario === "" || senha === "") {
+        erroMsg.textContent = "Preencha todos os campos.";
         return;
     }
 
-    alert("Login realizado com sucesso!");
+    // Exemplo de login fixo
+    const usuarioCorreto = "admin";
+    const senhaCorreta = "1234";
 
-    // COLOQUE A PRÓXIMA PÁGINA AQUI
-    window.location.href = "home.html";
-}
+    // Verificação do login
+    if (usuario === usuarioCorreto && senha === senhaCorreta) {
 
-function voltar() {
-    window.location.href = "cadastro.html";
-}
+        // Mensagem de sucesso
+        alert("Login realizado com sucesso!");
+
+        // Redirecionamento
+        // Troque pelo link da sua página
+        window.location.href = "/frontend/pages/home.html";
+
+    } else {
+
+        // Mensagem de erro
+        erroMsg.textContent = "Usuário ou senha incorretos.";
+
+    }
+
+});
