@@ -1,4 +1,4 @@
-// cadastro.js
+
 
 const form = document.getElementById("loginForm");
 const erroMsg = document.getElementById("erroMsg");
@@ -6,17 +6,17 @@ const erroMsg = document.getElementById("erroMsg");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Pegando os valores dos inputs
+   
     const usuario = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
     const email = document.getElementById("email").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const placa = document.getElementById("placa").value.trim();
 
-    // Limpa mensagem anterior
+    
     erroMsg.textContent = "";
 
-    // Validação simples
+    
     if (
         usuario === "" ||
         senha === "" ||
@@ -28,7 +28,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    // Validação de email
+    
     if (!email.includes("@") || !email.includes(".")) {
     erroMsg.textContent = "Digite um email válido.";
     return;
@@ -39,7 +39,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    // Validação simples de CPF (11 números)
+    
     let cpfLimpo = cpf;
     cpfLimpo = cpfLimpo.replaceAll(".", "");
     cpfLimpo = cpfLimpo.replaceAll("-", "");
@@ -49,7 +49,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    // Validação simples da placa
+
     if (placa.length < 7) {
     erroMsg.textContent = "Placa inválida.";
     return;
@@ -60,7 +60,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    // Cadastro realizado
+   
     alert("Cadastro realizado com sucesso!");
 
 });
