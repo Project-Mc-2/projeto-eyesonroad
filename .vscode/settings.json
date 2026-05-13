@@ -1,2 +1,9 @@
 {
+    "python-envs.pythonProjects": [
+        {
+            "path": "monitor.py_project",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
+        }
+    ]
 }
