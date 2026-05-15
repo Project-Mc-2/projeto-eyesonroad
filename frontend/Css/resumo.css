@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+/* HEADER */
+header {
+    background-color: #0b0f3f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.logo p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.top-buttons .btn {
+    background-color: #1e2a78;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.top-buttons .active {
+    background-color: #2d3cff;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 15px;
+    padding: 20px 30px;
+}
+
+.card {
+    background: #e6e6e6;
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0;
+}
+
+.card p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: flex;
+    gap: 20px;
+    padding: 0 30px;
+}
+
+.box {
+    background: #e6e6e6;
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alert-btn {
+    background: #cfd8ff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* GRÁFICO */
+.chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+.bar {
+    width: 20px;
+    background: #5c5f73;
+}
+
+.big {
+    background: #3d3f55;
+}
+
+.days {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* EVENTO */
+.event {
+    margin-top: 20px;
+    background: #cfd8ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* DICAS */
+.tips {
+    margin: 20px 30px;
+    background: #e6e6e6;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tips-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.tip {
+    background: #dcdcdc;
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.tip h4 {
+    margin-top: 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #0b0f3f;
+    color: white;
+    margin-top: 20px;
+}
+canvas {
+    margin-top: 20px;
+    max-height: 200px;
+}

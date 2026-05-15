@@ -1,96 +1,54 @@
 import cv2
-import winsound
 import time
 
-# Carrega classificadores
-rosto_cascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
-)
+# Carrega classificadores Haar Cascade
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
-olho_cascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + 'haarcascade_eye.xml'
-)
+cap = cv2.VideoCapture(0)
 
-# Inicia câmera
-camera = cv2.VideoCapture(0)
-
-# Controle de tempo
-inicio_sem_olhos = None
-TEMPO_ALERTA = 2  # segundos
+eye_closed_start = None
+ALERT_TIME = 2  # segundos
 
 while True:
-    sucesso, frame = camera.read()
-
-    if not sucesso:
+    ret, frame = cap.read()
+    if not ret:
         break
 
-    # Espelha imagem
-    frame = cv2.flip(frame, 1)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Escala de cinza
-    cinza = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    eyes_detected = False
 
-    # Detecta rosto
-    rostos = rosto_cascade.detectMultiScale(
-        cinza,
-        scaleFactor=1.3,
-        minNeighbors=5
-    )
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (255,0,0), 2)
 
-    for (x, y, w, h) in rostos:
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = frame[y:y+h, x:x+w]
 
-        # Desenha rosto
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        eyes = eye_cascade.detectMultiScale(roi_gray)
 
-        # Região do rosto
-        rosto_gray = cinza[y:y+h, x:x+w]
-        rosto_color = frame[y:y+h, x:x+w]
+        if len(eyes) > 0:
+            eyes_detected = True
+            for (ex, ey, ew, eh) in eyes:
+                cv2.rectangle(roi_color, (ex,ey), (ex+ew,ey+eh), (0,255,0), 2)
 
-        # Detecta olhos
-        olhos = olho_cascade.detectMultiScale(rosto_gray)
-
-        # Se encontrou olhos
-        if len(olhos) >= 2:
-
-            inicio_sem_olhos = None
-
-            cv2.putText(frame, "OLHOS ABERTOS", (20, 40),
-                        cv2.FONT_HERSHEY_SIMPLEX,
-                        1, (0, 255, 0), 2)
-
-            # Desenha olhos
-            for (ox, oy, ow, oh) in olhos:
-                cv2.rectangle(rosto_color,
-                              (ox, oy),
-                              (ox+ow, oy+oh),
-                              (0, 255, 0), 2)
-
+    # 👁️ Lógica de sonolência
+    if not eyes_detected:
+        if eye_closed_start is None:
+            eye_closed_start = time.time()
         else:
-            cv2.putText(frame, "OLHOS FECHADOS", (20, 40),
-                        cv2.FONT_HERSHEY_SIMPLEX,
-                        1, (0, 0, 255), 2)
+            elapsed = time.time() - eye_closed_start
+            if elapsed > ALERT_TIME:
+                cv2.putText(frame, "SONOLENCIA!", (30,50),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 3)
+    else:
+        eye_closed_start = None
 
-            # Conta tempo
-            if inicio_sem_olhos is None:
-                inicio_sem_olhos = time.time()
+    cv2.imshow("Monitoramento OpenCV", frame)
 
-            tempo = time.time() - inicio_sem_olhos
-
-            # Alerta
-            if tempo >= TEMPO_ALERTA:
-
-                cv2.putText(frame, "ALERTA DE SONO!", (20, 80),
-                            cv2.FONT_HERSHEY_SIMPLEX,
-                            1, (0, 0, 255), 3)
-
-                winsound.Beep(2000, 500)
-
-    # Mostra tela
-    cv2.imshow("Monitoramento", frame)
-
-    # Fecha com Q
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-camera.release()
+cap.release()
 cv2.destroyAllWindows()
