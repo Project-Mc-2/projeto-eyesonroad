@@ -1,27 +1,70 @@
 const ctx = document.getElementById('graficoSemanal');
 
-const grafico = new Chart(ctx, {
+new Chart(ctx, {
     type: 'bar',
+
     data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+
         datasets: [{
-            label: 'Nível de Sonolência',
-            data: [2, 3, 5, 2, 8, 6, 1],
-            borderWidth: 1
+            label: 'Alertas Detectados',
+            data: [2, 4, 6, 3, 10, 7, 1],
+
+            backgroundColor: [
+                '#0a1c78',
+                '#0a1c78',
+                '#0a1c78',
+                '#0a1c78',
+                '#ff4d4d',
+                '#0a1c78',
+                '#0a1c78'
+            ],
+
+            borderRadius: 10,
+            borderSkipped: false
         }]
     },
+
     options: {
+
         responsive: true,
+
+        maintainAspectRatio: false,
+
         plugins: {
+
             legend: {
-                display: false
+                display: true
+            },
+
+            tooltip: {
+                backgroundColor: '#020B4F'
             }
         },
+
+        animation: {
+            duration: 2000
+        },
+
         scales: {
+
             y: {
-                beginAtZero: true
+
+                beginAtZero: true,
+
+                title: {
+                    display: true,
+                    text: 'Quantidade de Alertas'
+                }
+            },
+
+            x: {
+
+                title: {
+                    display: true,
+                    text: 'Dias da Semana'
+                }
             }
         }
     }
- 
 });
