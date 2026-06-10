@@ -1,15 +1,15 @@
 package com.projeto.eyesonroad.validations.annotatios;
 
+import java.lang.annotation.Documented;
+
 // Indica que esta anotação deve aparecer na documentação (JavaDoc).
 // Ou seja, ela não é "invisível" — faz parte da API pública.
 
-import java.lang.annotation.Documented;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import com.senai.smartfila.validations.validators.DatasCoerentesValidator;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -19,7 +19,7 @@ import jakarta.validation.Payload;
 // Define que esta anotação é uma validação customizada.
 // O parâmetro "validatedBy" informa qual classe contém a lógica da validação.
 // Nesse caso, quem valida de verdade é a classe DatasCoerentesValidator.
-@Constraint(validatedBy = DatasCoerentesValidator.class)
+@Constraint(validatedBy = DatasCoerentes.class)
 
 // Define onde essa anotação pode ser aplicada.
 // TYPE significa que ela será usada em nível de classe (e não em um campo específico).
