@@ -2,91 +2,142 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Monitor de Sono ao Volante</title>
     <link rel="stylesheet" href="/frontend/Css/resumo.css">
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveSafe Monitor</title>
+    <link rel="stylesheet" href="/frontend/Css/resumo.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+>>>>>>> 5ed374dd1c2c9b3bdf486312c385e5b68d5dc935
 </head>
 <body>
 
 <header>
     <div class="logo">
-        <h1>Monitor de Sono ao Volante</h1>
-        <p>Motorista: void.json</p>
+        <h2>EyesOnRoad Monitor</h2>
+        <span>Motorista: João Silva</span>
     </div>
 
-    <div class="top-buttons">
-        <button class="btn">Voyage</button>
-        <button class="btn active">Sistema Ativo</button>
+    <div class="status">
+        <div class="status-card">
+            <i class="fa-solid fa-car"></i>
+            Veículo Ativo
+        </div>
+
+        <div class="status-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            Sistema Online
+        </div>
     </div>
 </header>
 
-<section class="cards">
-    <div class="card">
-        <h2>0</h2>
-        <p>ALARMES DISPARADOS</p>
-    </div>
+<main>
 
-    <div class="card">
-        <h2>0</h2>
-        <p>EPISÓDIOS DE SONOLÊNCIA</p>
-    </div>
+    <section class="cards">
 
-    <div class="card">
-        <h2>0s</h2>
-        <p>TEMPO DE REAÇÃO</p>
-    </div>
+        <div class="card">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h1>3</h1>
+            <p>Alertas Registrados</p>
+        </div>
 
-    <div class="card">
-        <h2>100%</h2>
-        <p>ÍNDICE DE SEGURANÇA</p>
-    </div>
-</section>
+        <div class="card">
+            <i class="fa-solid fa-eye-slash"></i>
+            <h1>2</h1>
+            <p>Episódios de Sonolência</p>
+        </div>
 
+        <div class="card">
+            <i class="fa-solid fa-clock"></i>
+            <h1>4h 25m</h1>
+            <p>Tempo Monitorado</p>
+        </div>
 
-<div class="box">
-    <div class="box-header">
+        <div class="card">
+            <i class="fa-solid fa-shield"></i>
+            <h1>95%</h1>
+            <p>Índice de Segurança</p>
+        </div>
+
+    </section>
+
+    <section class="dashboard">
+
+      <div class="grafico">
+
+    <div class="titulo">
         <h3>Resumo Semanal</h3>
-        <button class="alert-btn">Alertas</button>
+        <button id="btnAtualizar">Alertas</button>
     </div>
 
     <canvas id="graficoSemanal"></canvas>
+
 </div>
-        
 
-    <div class="box">
-        <h3>Eventos Recentes</h3>
-        <div class="event">
-            Sonolência: 16h45 - 18/03
-        </div>
-    </div>
-</section>
-
-<section class="tips">
-    <h3>Dicas de Segurança</h3>
-
-    <div class="tips-container">
-        <div class="tip">
-            <h4>Faça Pausas Regulares</h4>
-            <p>Pare a cada 2 horas para descansar e se alongar.</p>
+           
         </div>
 
-        <div class="tip">
-            <h4>Mantenha-se Hidratado</h4>
-            <p>Beba água regularmente para manter o foco.</p>
+        <div class="eventos">
+            <h3>Eventos Recentes</h3>
+
+            <div class="evento">
+                Sonolência detectada - 14:25
+            </div>
+
+            <div class="evento">
+                Alerta de distração - 16:10
+            </div>
+
+            <div class="evento">
+                Motorista atento novamente
+            </div>
+
         </div>
 
-        <div class="tip">
-            <h4>Beba Água</h4>
-            <p>Garanta 7-8 horas de sono antes de dirigir.</p>
+    </section>
+
+    <section class="dicas">
+
+        <h3>
+            <i class="fa-regular fa-lightbulb"></i>
+            Dicas de Segurança
+        </h3>
+
+        <div class="dicas-grid">
+
+            <div class="dica-card">
+                <i class="fa-regular fa-clock"></i>
+                <h4>Faça Pausas</h4>
+                <p>Pare a cada 2 horas para descansar.</p>
+            </div>
+
+            <div class="dica-card">
+                <i class="fa-solid fa-droplet"></i>
+                <h4>Mantenha-se Hidratado</h4>
+                <p>Beba água regularmente durante a viagem.</p>
+            </div>
+
+            <div class="dica-card">
+                <i class="fa-solid fa-bed"></i>
+                <h4>Durma Bem</h4>
+                <p>Tenha pelo menos 8 horas de sono.</p>
+            </div>
+
         </div>
-    </div>
-</section>
+
+    </section>
+
+</main>
 
 <footer>
-    <p>©2026</p>
+    © 2026 - EyesOnRoad. Todos os direitos reservados.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/frontend/Js/resumo.js"></script>
+<script src="resumo.js"></script>
 
 </body>
 </html>
