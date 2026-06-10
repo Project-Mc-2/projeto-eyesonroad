@@ -1,0 +1,55 @@
+body{
+    background:#02060f;
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.sobre{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+}
+
+.sobre h1{
+    text-align:center;
+    font-size:3rem;
+    color:#1f78ff;
+    margin-bottom:50px;
+}
+
+.sobre-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.sobre-logo{
+    flex:1;
+    text-align:center;
+}
+
+.sobre-logo img{
+    width:100%;
+    max-width:450px;
+    filter:
+    drop-shadow(0 0 15px #0066ff)
+    drop-shadow(0 0 30px #0066ff66);
+}
+
+.sobre-texto{
+    flex:1;
+    min-width:350px;
+}
+
+.sobre-texto p{
+    font-size:18px;
+    line-height:2;
+    color:#d5d5d5;
+    margin-bottom:20px;
+}
+
+.sobre-texto strong{
+    color:#1f78ff;
+}
