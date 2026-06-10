@@ -9,58 +9,22 @@ body{
     background:#02060f;
     color:white;
     min-height:100vh;
-    overflow-x:hidden;
+    position:relative;
 }
 
 body::before{
-    content:'';
+    content:"";
     position:fixed;
     inset:0;
-    background:
-    radial-gradient(circle at 20% 30%, #0d4cff40, transparent 40%),
-    radial-gradient(circle at 80% 50%, #0066ff30, transparent 40%);
+    background-image:url("/frontend/Img/ChatGPT Image 22 de abr. de 2026, 12_48_11.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     z-index:-1;
 }
 
 header{
-    width:90%;
-    margin:auto;
-    padding:30px 0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:28px;
-    font-weight:700;
-}
-
-.logo i{
-    color:#1f78ff;
-}
-
-.logo span{
-    color:#fff;
-}
-
-nav{
-    display:flex;
-    gap:40px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#d9d9d9;
-    transition:.3s;
-}
-
-nav a:hover,
-nav .active{
-    color:#1f78ff;
+    display:none;
 }
 
 .hero{
@@ -69,7 +33,8 @@ nav .active{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    min-height:70vh;
+    min-height:75vh;
+    padding: 60px 0;
 }
 
 .hero-content{
@@ -78,14 +43,14 @@ nav .active{
 
 .subtitle{
     color:#1f78ff;
-    letter-spacing:5px;
-    margin-bottom:20px;
+    letter-spacing:6px;
+    margin-bottom:25px;
     font-size:14px;
 }
 
 .hero h1{
-    font-size:90px;
-    margin-bottom:10px;
+    font-size:80px;
+    margin-bottom:20px;
 }
 
 .hero h1 span{
@@ -93,8 +58,8 @@ nav .active{
 }
 
 .hero h2{
-    font-size:36px;
-    margin-bottom:20px;
+    font-size:32px;
+    margin-bottom:25px;
 }
 
 .line{
@@ -102,20 +67,20 @@ nav .active{
     height:4px;
     background:#1f78ff;
     border-radius:10px;
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
 .description{
     max-width:500px;
     color:#c0c0c0;
-    font-size:18px;
-    line-height:1.7;
+    font-size:16px;
+    line-height:1.8;
 }
 
 .buttons{
     display:flex;
-    gap:20px;
-    margin-top:40px;
+    gap:30px;
+    margin-top:50px;
 }
 
 .btn-um,
@@ -123,56 +88,22 @@ nav .active{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
-
-    min-width:180px;
-    height:55px;
-
+    gap:12px;
+    min-width:190px;
+    height:58px;
     text-decoration:none;
     border-radius:12px;
-
     font-size:16px;
     font-weight:600;
-
     transition:0.3s;
-}
-
-.btn-um{
-     border:2px solid #0066ff;
-    color:#fff;
-    background:transparent;
-}
-
-.btn-um:hover{
-    background:#0066ff;
-    color:white;
-}
-
-.btn-dois{
     border:2px solid #0066ff;
     color:#fff;
     background:transparent;
 }
 
+.btn-um:hover,
 .btn-dois:hover{
     background:#0066ff;
-    color:white;
-}
-
-.features{
-    display:flex;
-    gap:30px;
-    margin-top:40px;
-    flex-wrap:wrap;
-}
-
-.features span{
-    color:#cfcfcf;
-}
-
-.features i{
-    color:#1f78ff;
-    margin-right:8px;
 }
 
 .hero-image{
@@ -181,76 +112,24 @@ nav .active{
 
 .hero-image img{
     width:100%;
-    filter:
-    drop-shadow(0 0 30px #0d5eff)
-    drop-shadow(0 0 80px #0d5eff);
-    
+    filter:drop-shadow(0 0 30px #0d5eff);
 }
 
 .cards{
     width:90%;
-    margin:40px auto;
+    margin:-20px auto 60px auto; 
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:35px;
 }
 
 .card{
-    background:rgba(8,15,35,.9);
+    background:rgba(8, 15, 35, 0.863);
     border:1px solid rgba(30,100,255,.3);
-    border-radius:20px;
-    padding:30px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 25px rgba(0,102,255,.3);
-}
-
-.card i{
-    font-size:35px;
-    color:#1f78ff;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#b8b8b8;
+    border-radius:15px;
+    padding:40px;
 }
 
 footer{
-    text-align:center;
-    padding:30px;
-    color:#999;
-}
-
-@media(max-width:1100px){
-
-@media(max-width:1100px){
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .hero-content,
-    .hero-image{
-        width:100%;
-    }
-
-    .hero h1{
-        font-size:60px;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-}
+    display:none;
 }
