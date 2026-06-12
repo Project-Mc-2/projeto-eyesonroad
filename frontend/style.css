@@ -15,7 +15,7 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("/frontend/Img/ChatGPT Image 22 de abr. de 2026, 12_48_11.png");
+    background-image:url("/Img/ChatGPT\ Image\ 22\ de\ abr.\ de\ 2026\,\ 12_48_11.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
