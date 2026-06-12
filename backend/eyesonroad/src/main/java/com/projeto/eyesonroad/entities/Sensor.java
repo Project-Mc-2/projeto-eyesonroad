@@ -18,10 +18,6 @@ public class Sensor {
     private Long idSensor;
 
     @NotBlank
-    @Pattern(
-        regexp = "^[\\p{L}]+( [\\p{L}]+)*$",
-        message = "O modelo deve conter apenas letras e espaços."
-    )
     private String modelo;
 
     @Column(unique = true, nullable = false)
