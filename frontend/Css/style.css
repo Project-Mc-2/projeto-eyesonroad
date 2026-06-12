@@ -15,7 +15,11 @@ body::before{
     content:"";
     position:fixed;
     inset:0;
+<<<<<<< HEAD:frontend/Css/style.css
     background-image:url("/Img/imageindex.png");
+=======
+    background-image:url("/Img/ChatGPT\ Image\ 22\ de\ abr.\ de\ 2026\,\ 12_48_11.png");
+>>>>>>> c90973bee787abbc4ab4bb8d511213372b44338a:frontend/style.css
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
