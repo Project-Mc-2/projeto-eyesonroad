@@ -21,6 +21,19 @@ form.addEventListener("submit", function(event) {
         senha === usuarioSalvo.senha
     ) {
         alert("Login realizado com sucesso!");
+        
+         localStorage.setItem("usuarioLogado", JSON.stringify({
+            nome: usuarioSalvo.usuario,
+            alertas: 3,
+            sonolencia: 2,
+            tempo: "4h 25m",
+            seguranca: "95%",
+            eventos: [
+                "Login realizado com sucesso"
+            ],
+            grafico: [1, 2, 1, 3, 2, 1, 0]
+        }));
+
         window.location.href = "resumo.html";
     } else {
         erroMsg.textContent = "Usuário ou senha incorretos.";
