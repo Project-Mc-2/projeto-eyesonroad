@@ -44,6 +44,10 @@ public class Usuario {
 	    @Size(min=5, max=20, message="A senha deve ter entre 5 e 20 caracteres.")
 	    private String senha;
 	    
+		@NotBlank(message = "O login é obrigatório")
+		@Column(nullable = false, unique = true, length = 50)
+		private String login;
+	    
 	    @Email(message = "E-mail inválido.")
 	    @Size(max=120, message="E-mail deve ter no máimo 120 caracteres.")
 	    @Column(unique = true, length = 120)
@@ -74,7 +78,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String telefone,
+    public Usuario(Long id, String nome, String login, String email, String telefone,
                    String cpf, LocalDate dataNascimento,
                    String senha, TipoUsuario tipo) {
         this.id = id;
@@ -85,6 +89,7 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
         this.senha = senha;
         this.tipo = tipo;
+        this.login = login;
     }
 
     public Long getId() {
@@ -143,7 +148,19 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public TipoUsuario getTipo() {
+    public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
+
+	public TipoUsuario getTipo() {
         return tipo;
     }
 

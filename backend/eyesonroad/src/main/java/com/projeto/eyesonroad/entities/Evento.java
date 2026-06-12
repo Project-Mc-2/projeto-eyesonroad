@@ -21,10 +21,8 @@ public class Evento {
     private Long idEvento;
 
     @Column(nullable = false)
-    private LocalTime hora;
+    private LocalDate dataHora;
 
-    @Column(nullable = false)
-    private LocalDate dia;
 
     @Column(nullable = false)
     private String acao;
@@ -32,15 +30,19 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "id_sensor")
     private Sensor sensor;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     public Evento() {
     }
 
-    public Evento(LocalDate dia, LocalTime hora, String acao, Sensor sensor) {
-        this.dia = dia;
-        this.hora = hora;
+    public Evento(LocalDate dataHora, String acao, Sensor sensor, Usuario usuario) {
+        this.dataHora = dataHora;
         this.acao = acao;
         this.sensor = sensor;
+        this.usuario = usuario;
     }
 
     public Long getIdEvento() {
@@ -49,22 +51,14 @@ public class Evento {
 
     public void setIdEvento(Long idEvento) {
         this.idEvento = idEvento;
+     }
+
+    public LocalDate getdataHora() {
+        return dataHora;
     }
 
-    public LocalTime getHora() {
-        return hora;
-    }
-
-    public void setHora(LocalTime hora) {
-        this.hora = hora;
-    }
-
-    public LocalDate getDia() {
-        return dia;
-    }
-
-    public void setDia(LocalDate dia) {
-        this.dia = dia;
+    public void setDia(LocalDate dataHora) {
+        this.dataHora = dataHora;
     }
 
     public String getAcao() {
@@ -81,5 +75,13 @@ public class Evento {
 
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
+    }
+    
+    public Usuario getUsuario() {
+    	return usuario;
+    }
+    	
+    	public void setTipoUsuario(Usuario usuario) {
+    	this.usuario = usuario;
     }
 }
