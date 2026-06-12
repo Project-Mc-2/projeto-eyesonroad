@@ -2,19 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Monitor de Sono ao Volante</title>
-    <link rel="stylesheet" href="../Css/resumo.css">
+    <title>EyesOnRoad Monitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriveSafe Monitor</title>
-   
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../Css/resumo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
 <header>
     <div class="logo">
         <h2>EyesOnRoad Monitor</h2>
-        <span>Motorista: João Silva</span>
+        <span>Motorista: <span id="nomeMotorista"></span></span>
     </div>
 
     <div class="status">
@@ -36,25 +36,25 @@
 
         <div class="card">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <h1>3</h1>
+            <h1></h1>
             <p>Alertas Registrados</p>
         </div>
 
         <div class="card">
             <i class="fa-solid fa-eye-slash"></i>
-            <h1>2</h1>
+            <h1></h1>
             <p>Episódios de Sonolência</p>
         </div>
 
         <div class="card">
             <i class="fa-solid fa-clock"></i>
-            <h1>4h 25m</h1>
+            <h1></h1>
             <p>Tempo Monitorado</p>
         </div>
 
         <div class="card">
             <i class="fa-solid fa-shield"></i>
-            <h1>95%</h1>
+            <h1></h1>
             <p>Índice de Segurança</p>
         </div>
 
@@ -62,35 +62,19 @@
 
     <section class="dashboard">
 
-      <div class="grafico">
+        <div class="grafico">
 
-    <div class="titulo">
-        <h3>Resumo Semanal</h3>
-        <button id="btnAtualizar">Alertas</button>
-    </div>
+            <div class="titulo">
+                <h3>Resumo Semanal</h3>
+                <button id="btnAtualizar">Alertas</button>
+            </div>
 
-    <canvas id="graficoSemanal"></canvas>
+            <canvas id="graficoSemanal"></canvas>
 
-</div>
-
-           
         </div>
 
         <div class="eventos">
             <h3>Eventos Recentes</h3>
-
-            <div class="evento">
-                Sonolência detectada - 14:25
-            </div>
-
-            <div class="evento">
-                Alerta de distração - 16:10
-            </div>
-
-            <div class="evento">
-                Motorista atento novamente
-            </div>
-
         </div>
 
     </section>
