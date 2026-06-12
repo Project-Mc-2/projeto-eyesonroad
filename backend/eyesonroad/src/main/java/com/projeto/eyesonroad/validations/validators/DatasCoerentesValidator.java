@@ -21,11 +21,11 @@ public class DatasCoerentesValidator implements ConstraintValidator<DatasCoerent
         LocalDate dataNascimento = usuario.getDataNascimento();
 
         // Se documentos não existir, deixamos outras validações tratarem
-        if (usuario.getDocumentos() == null) {
+        if (usuario.getEmail() == null) {
             return true;
         }
 
-        LocalDate dataEmissao = usuario.getDocumentos().getDataEmissao();
+        LocalDate dataEmissao = usuario.getEmail().getDataEmissao();
 
         // Se algum campo necessário estiver nulo, outra validação cuidará disso
         if (dataNascimento == null || dataEmissao == null) {
