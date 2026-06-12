@@ -1,6 +1,5 @@
-// ===============================
-// PEGAR USUÁRIO LOGADO
-// ===============================
+const API_URL = 
+
 let dados = null;
 
 try {
@@ -9,9 +8,7 @@ try {
     dados = null;
 }
 
-// ===============================
-// NOME DO MOTORISTA
-// ===============================
+
 const nomeMotorista = document.getElementById("nomeMotorista");
 
 if (dados && dados.nome) {
@@ -21,9 +18,6 @@ if (dados && dados.nome) {
 }
 
 
-// ===============================
-// CARDS (VALORES DO USUÁRIO)
-// ===============================
 const cards = document.querySelectorAll(".card h1");
 
 if (cards.length >= 4) {
@@ -34,9 +28,6 @@ if (cards.length >= 4) {
 }
 
 
-// ===============================
-// EVENTOS
-// ===============================
 const eventosContainer = document.querySelector(".eventos");
 
 const eventos = dados?.eventos;
@@ -58,9 +49,6 @@ if (eventos && eventos.length > 0) {
 }
 
 
-// ===============================
-// GRÁFICO (OPCIONAL)
-// ===============================
 const ctx = document.getElementById("graficoSemanal");
 
 if (ctx) {

@@ -1,3 +1,5 @@
+const API_URL = "http://localhost:8080/usuarios/cadastro";
+
 const form = document.getElementById("loginForm");
 const erroMsg = document.getElementById("erroMsg");
 
