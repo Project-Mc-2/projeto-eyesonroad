@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projeto.eyesonroad.entities.Carro;
 import com.projeto.eyesonroad.services.CarroService;
 
 import jakarta.validation.Valid;
