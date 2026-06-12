@@ -6,7 +6,6 @@
 }
 
 body{
-    background:#02060f;
     color:white;
     min-height:100vh;
     position:relative;
@@ -42,7 +41,7 @@ header{
 }
 
 .subtitle{
-    color:#041836;
+    color:#7ca9ed;
     letter-spacing:6px;
     margin-bottom:25px;
     font-size:14px;
