@@ -117,3 +117,68 @@ button:hover{
         padding: 30px;
     }
 }
+/* Formulário */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Campos lado a lado */
+.linha{
+    display: flex;
+    gap: 15px;
+}
+
+.linha input{
+    flex: 1;
+}
+
+/* Inputs */
+input{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #f2f4f8;
+    font-size: 14px;
+    outline: none;
+    transition: .3s;
+}
+
+input:focus{
+    background: #fff;
+    box-shadow: 0 0 0 2px #0c135f25;
+}
+
+/* Botão */
+button{
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #0c135f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover{
+    background: #18228d;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media(max-width: 900px){
+
+    .linha{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container{
+        width: 95%;
+    }
+}
