@@ -2,7 +2,11 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+<<<<<<< HEAD
+			<item value="C:\Users\DEV-2D\Documents\GitHub\projeto-eyesonroad\backend\eyesonroad\eyesonroad"/>
+=======
 			<item value="C:\Users\DEV-2D\Documents\GitHub\projeto-eyesonroad\backend\eyesonroad"/>
+>>>>>>> 8b2c5c2e46f69dfdb505aae9dc47c597667accdf
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
