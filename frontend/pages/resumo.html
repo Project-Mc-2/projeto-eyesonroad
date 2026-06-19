@@ -1,119 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>EyesOnRoad Monitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitor de Sono ao Volante</title>
-    <link rel="stylesheet" href="/frontend/Css/resumo.css">
+
+    <link rel="stylesheet" href="../Css/resumo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-<header class="header">
-    <h1>Monitor de Sono ao Volante</h1>
+<header>
+    <div class="logo">
+        <h2>EyesOnRoad Monitor</h2>
+        <span>Motorista: <span id="nomeMotorista"></span></span>
+    </div>
 
-    <div class="header-buttons">
-        <button>Voyage</button>
-        <button>Sistema Ativo</button>
+    <div class="status">
+        <div class="status-card">
+            <i class="fa-solid fa-car"></i>
+            Veículo Ativo
+        </div>
+
+        <div class="status-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            Sistema Online
+        </div>
     </div>
 </header>
 
-<main class="container">
+<main>
 
     <section class="cards">
+
         <div class="card">
-            <p class="small">ESTA SEMANA</p>
-            <p>ALARMES DISPARADOS</p>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h1></h1>
+            <p>Alertas Registrados</p>
         </div>
 
         <div class="card">
-            <p>EPISÓDIOS DE SONOLÊNCIA</p>
+            <i class="fa-solid fa-eye-slash"></i>
+            <h1></h1>
+            <p>Episódios de Sonolência</p>
         </div>
 
         <div class="card">
-            <p>TEMPO DE REAÇÃO</p>
+            <i class="fa-solid fa-clock"></i>
+            <h1></h1>
+            <p>Tempo Monitorado</p>
         </div>
 
         <div class="card">
-            <p>ÍNDICE DE SEGURANÇA</p>
+            <i class="fa-solid fa-shield"></i>
+            <h1></h1>
+            <p>Índice de Segurança</p>
         </div>
+
     </section>
 
-    <section class="grid">
-        <div class="box">
-            <div class="box-header">
+    <section class="dashboard">
+
+        <div class="grafico">
+
+            <div class="titulo">
                 <h3>Resumo Semanal</h3>
-                <span class="tag">Alertas</span>
+                <button id="btnAtualizar">Alertas</button>
             </div>
 
-            <div class="chart">
-                <div class="bar" style="height:30px"></div>
-                <div class="bar" style="height:40px"></div>
-                <div class="bar" style="height:60px"></div>
-                <div class="bar" style="height:35px"></div>
-                <div class="bar" style="height:120px"></div>
-                <div class="bar" style="height:80px"></div>
-                <div class="bar" style="height:15px"></div>
-            </div>
+            <canvas id="graficoSemanal"></canvas>
 
-            <div class="days">
-                <span>Seg</span>
-                <span>Ter</span>
-                <span>Qua</span>
-                <span>Qui</span>
-                <span>Sex</span>
-                <span>Sab</span>
-                <span>Dom</span>
-            </div>
         </div>
 
-        <div class="box">
+        <div class="eventos">
             <h3>Eventos Recentes</h3>
-            <p class="event">Sonolência: </p>
         </div>
+
     </section>
 
-    <section class="box">
-        <h3>Dicas de Segurança</h3>
+    <section class="dicas">
 
-        <div class="tips">
-            <div class="tip">
-                <h4>Faça Pausas Regulares</h4>
-                <p>Pare a cada 2 horas para descansar e se alongar.</p>
+        <h3>
+            <i class="fa-regular fa-lightbulb"></i>
+            Dicas de Segurança
+        </h3>
+
+        <div class="dicas-grid">
+
+            <div class="dica-card">
+                <i class="fa-regular fa-clock"></i>
+                <h4>Faça Pausas</h4>
+                <p>Pare a cada 2 horas para descansar.</p>
             </div>
 
-            <div class="tip">
+            <div class="dica-card">
+                <i class="fa-solid fa-droplet"></i>
                 <h4>Mantenha-se Hidratado</h4>
-                <p>Beba água regularmente para manter o foco.</p>
+                <p>Beba água regularmente durante a viagem.</p>
             </div>
 
-            <div class="tip">
-                <h4>Beba Água</h4>
-                <p>Garanta 7-8 horas de sono antes de dirigir.</p>
+            <div class="dica-card">
+                <i class="fa-solid fa-bed"></i>
+                <h4>Durma Bem</h4>
+                <p>Tenha pelo menos 8 horas de sono.</p>
             </div>
+
         </div>
+
     </section>
 
 </main>
 
-<section class="about">
-    <img src="img/equipe.jpg" alt="Equipe">
-
-    <div>
-        <h3>Sobre Nós</h3>
-        <p>
-            Somos um grupo de meninas do curso de Desenvolvimento de Sistemas.
-            Nosso projeto é pensado para auxiliar na segurança em tempo real.
-            Ao longo do desenvolvimento, colocamos em prática nossos conhecimentos
-            em equipe e resolução de problemas, buscando sempre entregar um
-            resultado funcional e bem estruturado.
-        </p>
-    </div>
-</section>
-
-<footer class="footer">
-    © 2026
+<footer>
+    © 2026 - EyesOnRoad. Todos os direitos reservados.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="resumo.js"></script>
 
 </body>
 </html>

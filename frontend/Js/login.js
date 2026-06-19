@@ -1,44 +1,64 @@
+const API_URL = "http://localhost:8080/usuarios/login";
 
 const form = document.getElementById("loginForm");
-const usuarioInput = document.getElementById("usuario");
-const senhaInput = document.getElementById("senha");
 const erroMsg = document.getElementById("erroMsg");
 
-
-form.addEventListener("submit", function(event) {
-
-    
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
-
-    
-    const usuario = usuarioInput.value.trim();
-    const senha = senhaInput.value.trim();
-
     erroMsg.textContent = "";
 
-   
-    if (usuario === "" || senha === "") {
+    const usuario = document.getElementById("usuario").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+
+    if (!usuario || !senha) {
         erroMsg.textContent = "Preencha todos os campos.";
         return;
     }
 
-    
-    const usuarioCorreto = "admin";
-    const senhaCorreta = "1234";
+    const dadosLogin = {
+        login: usuario, 
+        senha: senha
+    };
 
- 
-    if (usuario === usuarioCorreto && senha === senhaCorreta) {
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dadosLogin)
+        });
 
-       
-        alert("Login realizado com sucesso!");
+        if (response.ok) {
+            
+            let usuarioAutenticado = {};
+            try {
+                usuarioAutenticado = await response.json();
+            } catch (e) {
+                console.log("Login OK, mas não retornou JSON.");
+            }
 
-        
-        window.location.href = "/frontend/pages/resumo.html";
+            alert("Login realizado com sucesso no Banco de Dados!");
+            
+            localStorage.setItem("usuarioLogado", JSON.stringify({
+                nome: usuarioAutenticado.nome || usuario, 
+                alertas: 3,
+                sonolencia: 2,
+                tempo: "4h 25m",
+                seguranca: "95%",
+                eventos: [
+                    "Login realizado com sucesso"
+                ],
+                grafico: [1, 2, 1, 3, 2, 1, 0]
+            }));
 
-    } else {
-
-        erroMsg.textContent = "Usuário ou senha incorretos.";
-
+            window.location.href = "resumo.html";
+            
+        } else {
+            erroMsg.textContent = "Usuário ou senha incorretos.";
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        erroMsg.textContent = "Não foi possível conectar ao servidor back-end.";
     }
-
 });

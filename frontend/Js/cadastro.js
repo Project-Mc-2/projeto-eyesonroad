@@ -1,66 +1,71 @@
-
+const API_URL = "http://localhost:8080/usuarios";
 
 const form = document.getElementById("loginForm");
 const erroMsg = document.getElementById("erroMsg");
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
+    erroMsg.textContent = "";
 
-   
-    const usuario = document.getElementById("usuario").value.trim();
+    const usuarioCompleto = document.getElementById("usuario").value.trim();
     const senha = document.getElementById("senha").value.trim();
     const email = document.getElementById("email").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
-    const placa = document.getElementById("placa").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const dataNascimento = document.getElementById("dataNascimento").value.trim();
+    const placa = document.getElementById("placa").value.trim().toUpperCase();
 
-    
-    erroMsg.textContent = "";
-
-    
-    if (
-        usuario === "" ||
-        senha === "" ||
-        email === "" ||
-        cpf === "" ||
-        placa === ""
-    ) {
+    if (!usuarioCompleto || !senha || !email || !cpf || !telefone || !dataNascimento || !placa) {
         erroMsg.textContent = "Preencha todos os campos.";
         return;
     }
 
-    
-    if (!email.includes("@") || !email.includes(".")) {
-    erroMsg.textContent = "Digite um email válido.";
-    return;
-}
-
-    if (!emailValido.test(email)) {
-        erroMsg.textContent = "Digite um email válido.";
-        return;
-    }
-
-    
-    let cpfLimpo = cpf;
-    cpfLimpo = cpfLimpo.replaceAll(".", "");
-    cpfLimpo = cpfLimpo.replaceAll("-", "");
-
+    const cpfLimpo = cpf.replace(/\D/g, "");
     if (cpfLimpo.length !== 11) {
-        erroMsg.textContent = "CPF inválido.";
+        erroMsg.textContent = "CPF inválido. Certifique-se de digitar os 11 dígitos.";
         return;
     }
 
+    const usuarioCadastro = {
+        nome: usuarioCompleto,       
+        login: usuarioCompleto,      
+        senha: senha,                
+        email: email,
+        telefone: telefone,    
+        dataNascimento: dataNascimento,
+        cpf: cpfLimpo,
+        tipo: "MOTORISTA",          
+        carro: {                    
+            marca: "Não informada",
+            modelo: "Não informado",
+            placa: placa,
+            ano: 2026                
+        }
+    };
 
-    if (placa.length < 7) {
-    erroMsg.textContent = "Placa inválida.";
-    return;
-}
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuarioCadastro)
+        });
 
-    if (!placaValida.test(placa)) {
-        erroMsg.textContent = "Placa inválida.";
-        return;
+        if (response.ok) {
+            alert("Cadastro realizado com sucesso!");
+            window.location.href = "../pages/logarConta.html";
+        } else {
+            const textoErro = await response.text();
+            try {
+                const dadosErro = JSON.parse(textoErro);
+                erroMsg.textContent = dadosErro.mensagem || "Erro ao realizar cadastro.";
+            } catch (e) {
+                erroMsg.textContent = "Erro no servidor.";
+            }
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        erroMsg.textContent = "Não foi possível conectar ao servidor.";
     }
-
-   
-    alert("Cadastro realizado com sucesso!");
-
 });

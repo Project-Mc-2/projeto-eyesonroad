@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Google Sans", sans-serif;
+}
+
+body{
+    color:white;
+    min-height:100vh;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("../Img/imageindex.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    z-index:-1;
+}
+
+header{
+    display:none;
+}
+
+.hero{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:75vh;
+    padding: 60px 0;
+}
+
+.hero-content{
+    width:50%;
+}
+
+.subtitle{
+    color:#7ca9ed;
+    letter-spacing:6px;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#1f78ff;
+}
+
+.hero h2{
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.line{
+    width:80px;
+    height:4px;
+    background:#1f78ff;
+    border-radius:10px;
+    margin-bottom:35px;
+}
+
+.description{
+    max-width:500px;
+    color:#c0c0c0;
+    font-size:16px;
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    gap:30px;
+    margin-top:50px;
+}
+
+.btn-um,
+.btn-dois{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    min-width:190px;
+    height:58px;
+    text-decoration:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    transition:0.3s;
+    border:2px solid #0066ff;
+    color:#fff;
+    background:transparent;
+}
+
+.btn-um:hover,
+.btn-dois:hover{
+    background:#0066ff;
+}
+
+.hero-image{
+    width:45%;
+}
+
+.hero-image img{
+    width:100%;
+    filter:drop-shadow(0 0 30px #0d5eff);
+}
+
+.cards{
+    width:90%;
+    margin:-20px auto 60px auto; 
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+.card{
+    background:rgba(8, 15, 35, 0.863);
+    border:1px solid rgba(30,100,255,.3);
+    border-radius:15px;
+    padding:40px;
+}
+
+footer{
+    display:none;
+}

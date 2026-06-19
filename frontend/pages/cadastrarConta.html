@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Monitor de Sono</title>
-    <link rel="stylesheet" href="/frontend/Css/cadastro.css">
+    <title>Cadastro - Monitor de Sono</title>
+    <link rel="stylesheet" href="../Css/cadastro.css">
 </head>
 <body>
 
@@ -16,21 +16,22 @@
             <input type="text" id="usuario" placeholder="Usuário" required>
             <input type="password" id="senha" placeholder="Senha" required>
             <input type="email" id="email" placeholder="Email" required>
-            <input type="cpf" id="cpf" placeholder="Cpf" required>
-            <input type="placa" id="placa" placeholder="Placa" required>
+            <input type="text" id="cpf" placeholder="CPF" required>
+            <input type="tel" id="telefone" placeholder="Telefone" required>
+            <input type="date" id="dataNascimento" required>
+            <input type="text" id="placa" placeholder="Placa do Carro" required>
 
-
-        
-
-            <button type="submit">ENTRAR</button>
+            <button type="submit">CADASTRAR</button>
         </form>
 
         <p class="erro" id="erroMsg"></p>
 
-        
+        <p class="cadastro">
+            Já tem conta? <a href="../pages/logarConta.html">Clique aqui!</a>
+        </p>
     </div>
 </div>
 
-<script src="/frontend/js/cadastro.js"></script>
+<script src="../Js/cadastro.js"></script>
 </body>
 </html>
