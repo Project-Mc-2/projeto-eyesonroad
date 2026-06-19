@@ -1,5 +1,6 @@
 	package com.projeto.eyesonroad.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,11 +24,8 @@ import jakarta.validation.constraints.Pattern;
 	    @NotBlank(message = "A marca é obrigatória.")
 	    private String marca;
 	
-	    @Pattern(
-	        regexp = "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$|^[A-Z]{3}-[0-9]{4}$",
-	        message = "Placa inválida."
-	    )
-	    @NotBlank(message = "A placa é obrigatória.")
+	    @Column(name = "placa")
+	    @Pattern(regexp = "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$", message = "Placa inválida.") // Exemplo de padrão Mercosul
 	    private String placa;
 	
 	    @NotNull(message = "O ano é obrigatório.")

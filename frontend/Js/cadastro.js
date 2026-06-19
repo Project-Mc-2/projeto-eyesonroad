@@ -13,16 +13,10 @@ form.addEventListener("submit", async function(event) {
     const cpf = document.getElementById("cpf").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
     const dataNascimento = document.getElementById("dataNascimento").value.trim();
-    const placa = document.getElementById("placa").value.trim().toUpperCase();
+    
+    const placa = document.getElementById("placa").value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
 
-<<<<<<< HEAD
-    erroMsg.textContent = "";
-
-    // validações frontend (mantidas)
-    if (!usuario || !senha || !email || !cpf || !placa) {
-=======
     if (!usuarioCompleto || !senha || !email || !cpf || !telefone || !dataNascimento || !placa) {
->>>>>>> 1af1fde1cef3e4293c5c8c9d49e4337141f5545d
         erroMsg.textContent = "Preencha todos os campos.";
         return;
     }
@@ -34,13 +28,6 @@ form.addEventListener("submit", async function(event) {
     }
 
     const usuarioCadastro = {
-<<<<<<< HEAD
-        usuario,
-        senha,
-        email,
-        cpf: cpfLimpo,
-        placa
-=======
         nome: usuarioCompleto,       
         login: usuarioCompleto,      
         senha: senha,                
@@ -52,10 +39,9 @@ form.addEventListener("submit", async function(event) {
         carro: {                    
             marca: "Não informada",
             modelo: "Não informado",
-            placa: placa,
+            placa: placa, 
             ano: 2026                
         }
->>>>>>> 1af1fde1cef3e4293c5c8c9d49e4337141f5545d
     };
 
     try {
@@ -67,28 +53,6 @@ form.addEventListener("submit", async function(event) {
             body: JSON.stringify(usuarioCadastro)
         });
 
-<<<<<<< HEAD
-        if (!response.ok) {
-            const erro = await response.text();
-            erroMsg.textContent = erro || "Erro ao cadastrar usuário.";
-            return;
-        }
-
-        const resultado = await response.json();
-
-        alert("Cadastro realizado com sucesso!");
-
-        // salva retorno do backend (opcional)
-        localStorage.setItem("usuarioCadastro", JSON.stringify(resultado));
-
-        window.location.href = "../pages/logarConta.html";
-
-    } catch (error) {
-        console.error("Erro ao conectar com backend:", error);
-        erroMsg.textContent = "Erro de conexão com o servidor.";
-    }
-});
-=======
         if (response.ok) {
             alert("Cadastro realizado com sucesso!");
             window.location.href = "../pages/logarConta.html";
@@ -98,7 +62,7 @@ form.addEventListener("submit", async function(event) {
                 const dadosErro = JSON.parse(textoErro);
                 erroMsg.textContent = dadosErro.mensagem || "Erro ao realizar cadastro.";
             } catch (e) {
-                erroMsg.textContent = "Erro no servidor.";
+                erroMsg.textContent = "Erro interno no servidor (500). Verifique as validações.";
             }
         }
     } catch (error) {
@@ -106,4 +70,3 @@ form.addEventListener("submit", async function(event) {
         erroMsg.textContent = "Não foi possível conectar ao servidor.";
     }
 });
->>>>>>> 1af1fde1cef3e4293c5c8c9d49e4337141f5545d
