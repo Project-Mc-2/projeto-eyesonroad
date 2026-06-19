@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@ body{
     background-color: #021a31;
 }
 
-.container{
+.container {
     width: 900px;
     height: 520px;
     background: white;
@@ -28,8 +28,7 @@ body{
     position: relative;
 }
 
-
-.container::after{
+.container::after {
     content: "";
     position: absolute;
     right: 0;
@@ -42,81 +41,93 @@ body{
     background-repeat: no-repeat;
 }
 
-.login-box{
+.login-box {
     width: 50%;
     padding: 60px;
+    position: relative;
     z-index: 2;
 }
 
-.login-box h1{
+.login-box h1 {
     text-align: center;
     margin-bottom: 40px;
     color: #111;
+    font-size: 2rem;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-input{
+input {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 10px;
     background: #f0f2f7;
     font-size: 15px;
+    outline: none;
+    transition: .3s;
 }
 
-button{
+input:focus {
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(12, 19, 95, 0.2);
+}
+
+button {
     margin-top: 10px;
-    padding: 15px;
+    padding: 14px;
     border: none;
     border-radius: 10px;
-    background: #0c135f;;
+    background: #0c135f;
     color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: .3s;
-    font-family: "Montserrat", sans-serif;
 }
 
-button:hover{
-    background: #18228d;;
+button:hover {
+    background: #18228d;
+    transform: translateY(-2px);
 }
 
-.erro{
+.erro {
     text-align: center;
     color: red;
     margin-top: 15px;
+    font-weight: bold;
 }
 
-.forgot{
+/* Estilo do "Clique aqui" igualzinho ao da tela de cadastro */
+.cadastro {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 15px;
+    font-size: 14px;
     color: #666;
 }
 
-.forgot a{
+.cadastro a {
     color: #0c135f;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-
-@media(max-width: 900px){
-
-    .container{
+@media(max-width: 900px) {
+    .container {
         width: 95%;
-        height: auto;
+        justify-content: center;
     }
 
-    .container::after,
-    .container::before{
+    .container::after {
         display: none;
     }
 
-    .login-box{
+    .login-box {
         width: 100%;
+        padding: 30px;
     }
 }
