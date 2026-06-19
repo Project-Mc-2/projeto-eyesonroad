@@ -3,7 +3,7 @@ const API_URL = "http://localhost:8080/usuarios/cadastro";
 const form = document.getElementById("loginForm");
 const erroMsg = document.getElementById("erroMsg");
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const usuario = document.getElementById("usuario").value.trim();
@@ -14,6 +14,7 @@ form.addEventListener("submit", function(event) {
 
     erroMsg.textContent = "";
 
+    // validações frontend (mantidas)
     if (!usuario || !senha || !email || !cpf || !placa) {
         erroMsg.textContent = "Preencha todos os campos.";
         return;
@@ -40,13 +41,36 @@ form.addEventListener("submit", function(event) {
         usuario,
         senha,
         email,
-        cpf,
+        cpf: cpfLimpo,
         placa
     };
 
-    localStorage.setItem("usuarioCadastro", JSON.stringify(usuarioCadastro));
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuarioCadastro)
+        });
 
-    alert("Cadastro realizado com sucesso!");
+        if (!response.ok) {
+            const erro = await response.text();
+            erroMsg.textContent = erro || "Erro ao cadastrar usuário.";
+            return;
+        }
 
-    window.location.href = "../pages/logarConta.html";
+        const resultado = await response.json();
+
+        alert("Cadastro realizado com sucesso!");
+
+        // salva retorno do backend (opcional)
+        localStorage.setItem("usuarioCadastro", JSON.stringify(resultado));
+
+        window.location.href = "../pages/logarConta.html";
+
+    } catch (error) {
+        console.error("Erro ao conectar com backend:", error);
+        erroMsg.textContent = "Erro de conexão com o servidor.";
+    }
 });
