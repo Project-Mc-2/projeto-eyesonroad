@@ -7,16 +7,16 @@ form.addEventListener("submit", async function(event) {
     event.preventDefault();
     erroMsg.textContent = "";
 
-    const usuario = document.getElementById("usuario").value.trim();
+    const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value.trim();
 
-    if (!usuario || !senha) {
+    if (!email || !senha) {
         erroMsg.textContent = "Preencha todos os campos.";
         return;
     }
 
     const dadosLogin = {
-        login: usuario, 
+        login: email, 
         senha: senha
     };
 
@@ -55,7 +55,7 @@ form.addEventListener("submit", async function(event) {
             window.location.href = "resumo.html";
             
         } else {
-            erroMsg.textContent = "Usuário ou senha incorretos.";
+            erroMsg.textContent = "Email ou senha incorretos.";
         }
     } catch (error) {
         console.error("Erro na requisição:", error);
