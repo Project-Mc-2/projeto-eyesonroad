@@ -28,21 +28,21 @@ form.addEventListener("submit", async function(event) {
     }
 
     const usuarioCadastro = {
-        nome: usuarioCompleto,       
-        login: usuarioCompleto,      
-        senha: senha,                
-        email: email,
-        telefone: telefone,    
-        dataNascimento: dataNascimento,
-        cpf: cpfLimpo,
-        tipo: "MOTORISTA",          
-        carro: {                    
-            marca: "Não informada",
-            modelo: "Não informado",
-            placa: placa, 
-            ano: 2026                
-        }
-    };
+    nome: usuarioCompleto,       
+    login: email,           
+    senha: senha,                
+    email: email,
+    telefone: telefone,    
+    dataNascimento: dataNascimento,
+    cpf: cpfLimpo,
+    tipo: "MOTORISTA",          
+    carro: {                    
+        marca: "Não informada",
+        modelo: "Não informado",
+        placa: placa, 
+        ano: 2026                
+    }
+};
 
     try {
         const response = await fetch(API_URL, {

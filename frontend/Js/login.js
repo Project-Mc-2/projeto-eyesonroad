@@ -1,64 +1,75 @@
 const API_URL = "http://localhost:8080/usuarios/login";
 
-const form = document.getElementById("loginForm");
-const erroMsg = document.getElementById("erroMsg");
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const senhaInput = document.getElementById('senha');
+    const erroMsg = document.getElementById('erroMsg');
 
-form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-    erroMsg.textContent = "";
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value.trim();
+        const emailDigitado = emailInput.value.trim();
+        const senhaDigitada = senhaInput.value.trim();
 
-    if (!email || !senha) {
-        erroMsg.textContent = "Preencha todos os campos.";
-        return;
-    }
+        erroMsg.textContent = '';
+        erroMsg.style.color = '#ff4d4d';
 
-    const dadosLogin = {
-        login: email, 
-        senha: senha
-    };
-
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(dadosLogin)
-        });
-
-        if (response.ok) {
-            
-            let usuarioAutenticado = {};
-            try {
-                usuarioAutenticado = await response.json();
-            } catch (e) {
-                console.log("Login OK, mas não retornou JSON.");
-            }
-
-            alert("Login realizado com sucesso no Banco de Dados!");
-            
-            localStorage.setItem("usuarioLogado", JSON.stringify({
-                nome: usuarioAutenticado.nome || usuario, 
-                alertas: 3,
-                sonolencia: 2,
-                tempo: "4h 25m",
-                seguranca: "95%",
-                eventos: [
-                    "Login realizado com sucesso"
-                ],
-                grafico: [1, 2, 1, 3, 2, 1, 0]
-            }));
-
-            window.location.href = "resumo.html";
-            
-        } else {
-            erroMsg.textContent = "Email ou senha incorretos.";
+        if (!emailDigitado || !senhaDigitada) {
+            erroMsg.textContent = 'Por favor, preencha todos os campos.';
+            return;
         }
-    } catch (error) {
-        console.error("Erro na requisição:", error);
-        erroMsg.textContent = "Não foi possível conectar ao servidor back-end.";
-    }
+
+       
+        const dadosLogin = {
+            nome: "Usuario Temporario",      
+            login: emailDigitado,
+            senha: senhaDigitada,                
+            email: emailDigitado, 
+            telefone: "11999999999",    
+            dataNascimento: "2000-01-01",
+            cpf: "00000000000",
+            tipo: "MOTORISTA",          
+            carro: {                    
+                marca: "N/A",
+                modelo: "N/A",
+                placa: "XXX0000", 
+                ano: 2026                
+            }
+        };
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dadosLogin)
+            });
+
+            if (response.ok) {
+                try {
+                    const dadosUsuario = await response.json();
+                    localStorage.setItem('usuarioLogado', JSON.stringify(dadosUsuario));
+                } catch (e) {
+                    console.log("Resposta não continha JSON.");
+                }
+
+                erroMsg.style.color = '#2ecc71'; 
+                erroMsg.textContent = 'Login efetuado com sucesso! Redirecionando...';
+
+                setTimeout(() => {
+                    window.location.href = '../pages/resumo.html'; 
+                }, 1500);
+
+            } else {
+                erroMsg.textContent = 'Usuário ou senha incorretos.';
+                senhaInput.value = '';
+                senhaInput.focus();
+            }
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            erroMsg.textContent = "Não foi possível conectar ao servidor.";
+        }
+    });
 });

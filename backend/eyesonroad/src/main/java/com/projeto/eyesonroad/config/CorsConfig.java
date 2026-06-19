@@ -19,7 +19,6 @@ public class CorsConfig {
         config.addAllowedMethod("*"); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        // Mapeia globalmente (/**) para que sub-rotas e todas as entidades funcionem voluntariamente
         source.registerCorsConfiguration("/**", config);
         
         return new CorsFilter(source);
