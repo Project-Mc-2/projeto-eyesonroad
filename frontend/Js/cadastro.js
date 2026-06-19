@@ -58,11 +58,39 @@ form.addEventListener("submit", async function(event) {
             window.location.href = "../pages/logarConta.html";
         } else {
             const textoErro = await response.text();
+            
+        
+            const matchDuplicado = textoErro.match(/Duplicate entry '([^']+)'/);
+
+            if (matchDuplicado) {
+                const valorDuplicado = matchDuplicado[1];
+
+                if (valorDuplicado === cpfLimpo) {
+                    erroMsg.textContent = "Este CPF já está cadastrado.";
+                } else if (valorDuplicado === email) {
+                    erroMsg.textContent = "Este E-mail já está cadastrado.";
+                } else if (valorDuplicado === usuarioCompleto) {
+                    erroMsg.textContent = "Este Nome de Usuário/Login já está cadastrado.";
+                } else if (valorDuplicado === telefone) {
+                    erroMsg.textContent = "Este Telefone já está cadastrado.";
+                } else if (valorDuplicado === placa) {
+                    erroMsg.textContent = "Esta Placa de veículo já está cadastrada.";
+                } else {
+                    erroMsg.textContent = `O dado '${valorDuplicado}' já está cadastrado no sistema.`;
+                }
+                return; 
+            }
+
+            if (textoErro.includes("Já existe usuário com este login")) {
+                erroMsg.textContent = "Este Login já está cadastrado.";
+                return;
+            }
+
             try {
                 const dadosErro = JSON.parse(textoErro);
-                erroMsg.textContent = dadosErro.mensagem || "Erro ao realizar cadastro.";
+                erroMsg.textContent = dadosErro.message || dadosErro.erro || dadosErro.mensagem || "Erro ao realizar cadastro.";
             } catch (e) {
-                erroMsg.textContent = "Erro interno no servidor (500). Verifique as validações.";
+                erroMsg.textContent = "Erro interno no servidor (500). Verifique os dados inseridos.";
             }
         }
     } catch (error) {
