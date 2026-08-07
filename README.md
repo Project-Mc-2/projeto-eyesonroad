@@ -1,4 +1,4 @@
-# EyesOnRoad
+# 🚗 EyesOnRoad
 
 ## Sobre o projeto
 
@@ -8,15 +8,15 @@ O projeto utiliza uma câmera para monitorar o motorista e identificar sinais de
 
 Além do sistema de monitoramento, o projeto conta com uma plataforma web que permite o cadastro e login de usuários, visualização de gráficos de alertas e acesso a dicas de segurança no trânsito.
 
-## Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
 <div align="center">
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="70px"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="70px"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="70px"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="70px"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="70px"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="60" alt="Java"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="60" alt="HTML5"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="60" alt="CSS3"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="60" alt="JavaScript"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="60" alt="Python"/>
 
 </div>
 
@@ -26,10 +26,10 @@ Além do sistema de monitoramento, o projeto conta com uma plataforma web que pe
 
 </div>
 
-## Como funciona
+## 📷 Como funciona
 
 ```text
-Câmera
+ Câmera
    ↓
 Monitoramento do motorista
    ↓
@@ -50,21 +50,21 @@ Dashboard
 
 O EyesOnRoad também disponibiliza dicas para ajudar os motoristas a evitar situações de risco relacionadas à sonolência, como a importância de descansar antes de dirigir e realizar pausas durante viagens longas.
 
-## Desenvolvedoras
+## 👩‍💻 Desenvolvedoras
 
-| Desenvolvedoras           | LinkedIn                                                                     |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| Maria Norbutas            | [LinkedIn](https://www.linkedin.com/in/maria-norbutas/)                      |
-| Miriã Lopes Ferraz        | [LinkedIn](https://www.linkedin.com/in/miri%C3%A3-lopes-ferraz/)             |
-| Pietra Gurgel             | [LinkedIn](https://www.linkedin.com/in/pietra-gurgel-130495358/)             |
-| Valentina Senger Spinelli | [LinkedIn](https://www.linkedin.com/in/valentina-senger-spinelli-53802b325/) |
+| Desenvolvedora            | LinkedIn                                                                     | GitHub                                       |
+| ------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------- |
+| Maria Norbutas            | [LinkedIn](https://www.linkedin.com/in/maria-norbutas/)                      | [GitHub](https://github.com/mnorbutas)       |
+| Miriã Lopes Ferraz        | [LinkedIn](https://www.linkedin.com/in/miri%C3%A3-lopes-ferraz/)             | [GitHub](https://github.com/mirialfv)        |
+| Pietra Gurgel             | [LinkedIn](https://www.linkedin.com/in/pietra-gurgel-130495358/)             | [GitHub](https://github.com/pietragurgell)   |
+| Valentina Senger Spinelli | [LinkedIn](https://www.linkedin.com/in/valentina-senger-spinelli-53802b325/) | [GitHub](https://github.com/valentinasenger) |
 
-## Instrutores
+## 📚 Instrutores
 
-| Instrutor(a)          | LinkedIn                                                                |
-| --------------------- | ----------------------------------------------------------------------- |
-| Vedilson              | [LinkedIn](https://www.linkedin.com/in/vedilson/)                       |
-| Luciana Sayuri Fugita | [LinkedIn](https://www.linkedin.com/in/luciana-sayuri-fugita-45741082/) |
+| Instrutor(a)          | LinkedIn                                                                | GitHub                                     |
+| --------------------- | ----------------------------------------------------------------------- | ------------------------------------------ |
+| Vedilson              | [LinkedIn](https://www.linkedin.com/in/vedilson/)                       | [GitHub](https://github.com/vedilsonprado) |
+| Luciana Sayuri Fugita | [LinkedIn](https://www.linkedin.com/in/luciana-sayuri-fugita-45741082/) | [GitHub](https://github.com/fugitalu)      |
 
 ## Objetivo
 
