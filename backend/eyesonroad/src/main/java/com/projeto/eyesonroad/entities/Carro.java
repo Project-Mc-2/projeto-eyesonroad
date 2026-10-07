@@ -25,7 +25,7 @@ import jakarta.validation.constraints.Pattern;
 	    private String marca;
 	
 	    @Column(name = "placa")
-	    @Pattern(regexp = "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$", message = "Placa inválida.") // Exemplo de padrão Mercosul
+	    @Pattern(regexp = "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$", message = "Placa inválida.") 
 	    private String placa;
 	
 	    @NotNull(message = "O ano é obrigatório.")
