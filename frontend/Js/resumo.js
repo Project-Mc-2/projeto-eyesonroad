@@ -1,70 +1,321 @@
-const API_URL = 
-
-let dados = null;
-
-try {
-    dados = JSON.parse(localStorage.getItem("usuarioLogado"));
-} catch (e) {
-    dados = null;
-}
-
-
 const nomeMotorista = document.getElementById("nomeMotorista");
 
-if (dados && dados.nome) {
-    nomeMotorista.textContent = dados.nome;
+const nomeSalvo = localStorage.getItem("nomeMotorista");
+
+if (nomeSalvo) {
+    nomeMotorista.textContent = nomeSalvo;
 } else {
-    nomeMotorista.textContent = "Desconhecido";
+    nomeMotorista.textContent = "Motorista";
 }
 
 
-const cards = document.querySelectorAll(".card h1");
+let dadosAlertas = [0, 0, 0, 0, 0, 0, 0];
 
-if (cards.length >= 4) {
-    cards[0].textContent = dados?.alertas ?? 0;
-    cards[1].textContent = dados?.sonolencia ?? 0;
-    cards[2].textContent = dados?.tempo ?? "0h 00m";
-    cards[3].textContent = dados?.seguranca ?? "0%";
-}
+let totalAlertas = 0;
+let totalSonolencia = 0;
+let tempoMonitorado = 0;
 
 
-const eventosContainer = document.querySelector(".eventos");
+const cardAlertas = document.getElementById("totalAlertas");
+const cardSonolencia = document.getElementById("totalSonolencia");
+const cardTempo = document.getElementById("tempoMonitorado");
+const cardSeguranca = document.getElementById("indiceSeguranca");
 
-const eventos = dados?.eventos;
+const listaEventos = document.getElementById("listaEventos");
 
-eventosContainer.innerHTML = "<h3>Eventos Recentes</h3>";
-
-if (eventos && eventos.length > 0) {
-    eventos.forEach(ev => {
-        const div = document.createElement("div");
-        div.classList.add("evento");
-        div.textContent = ev;
-        eventosContainer.appendChild(div);
-    });
-} else {
-    const div = document.createElement("div");
-    div.classList.add("evento");
-    div.textContent = "Nenhum evento registrado";
-    eventosContainer.appendChild(div);
-}
+const btnAtualizar = document.getElementById("btnAtualizar");
 
 
-const ctx = document.getElementById("graficoSemanal");
+const canvas = document.getElementById("graficoSemanal");
 
-if (ctx) {
-    new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-            datasets: [{
+
+const graficoSemanal = new Chart(canvas, {
+
+    type: "line",
+
+    data: {
+
+        labels: [
+            "Seg",
+            "Ter",
+            "Qua",
+            "Qui",
+            "Sex",
+            "Sáb",
+            "Dom"
+        ],
+
+        datasets: [
+
+            {
                 label: "Alertas",
-                data: dados?.grafico ?? [0, 0, 0, 0, 0, 0, 0],
-                fill: false,
-                tension: 0.3
-            }]
+
+                data: dadosAlertas,
+
+                borderColor: "#4d8dff",
+
+                backgroundColor: "rgba(77, 141, 255, 0.15)",
+
+                borderWidth: 3,
+
+                fill: true,
+
+                tension: 0.4,
+
+                pointRadius: 5,
+
+                pointHoverRadius: 7,
+
+                pointBackgroundColor: "#4d8dff",
+
+                pointBorderColor: "#ffffff",
+
+                pointBorderWidth: 2
+            }
+
+        ]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        animation: {
+            duration: 500
         },
-        options: {
-            responsive: true
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true,
+
+                ticks: {
+
+                    color: "#aebbd0",
+
+                    stepSize: 1
+
+                },
+
+                grid: {
+
+                    color: "rgba(255,255,255,0.08)"
+
+                }
+
+            },
+
+            x: {
+
+                ticks: {
+
+                    color: "#aebbd0"
+
+                },
+
+                grid: {
+
+                    display: false
+
+                }
+
+            }
+
+        },
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+
+                    color: "#ffffff"
+
+                }
+
+            }
+
         }
-    });
+
+    }
+
+});
+
+
+function atualizarCards() {
+
+    cardAlertas.textContent = totalAlertas;
+
+    cardSonolencia.textContent = totalSonolencia;
+
+    cardTempo.textContent = tempoMonitorado + "h";
+
+
+    let seguranca = 100 - (totalAlertas * 2);
+
+
+    if (seguranca < 0) {
+        seguranca = 0;
+    }
+
+
+    cardSeguranca.textContent = seguranca + "%";
 }
+
+
+function registrarAlerta() {
+
+    totalAlertas++;
+
+
+    const data = new Date();
+
+    const diaSemana = data.getDay();
+
+    let indice;
+
+
+    if (diaSemana === 0) {
+        indice = 6;
+    } else {
+        indice = diaSemana - 1;
+    }
+
+
+    dadosAlertas[indice]++;
+
+
+    graficoSemanal.data.datasets[0].data = dadosAlertas;
+
+    graficoSemanal.update();
+
+
+    adicionarEvento(
+        "Alerta de atenção detectado",
+        data
+    );
+
+
+    atualizarCards();
+}
+
+
+function registrarSonolencia() {
+
+    totalSonolencia++;
+
+    totalAlertas++;
+
+
+    const data = new Date();
+
+    const diaSemana = data.getDay();
+
+    let indice;
+
+
+    if (diaSemana === 0) {
+        indice = 6;
+    } else {
+        indice = diaSemana - 1;
+    }
+
+
+    dadosAlertas[indice]++;
+
+
+    graficoSemanal.data.datasets[0].data = dadosAlertas;
+
+    graficoSemanal.update();
+
+
+    adicionarEvento(
+        "Episódio de sonolência detectado",
+        data
+    );
+
+
+    atualizarCards();
+}
+
+
+function adicionarEvento(mensagem, data) {
+
+    const hora = data.toLocaleTimeString(
+        "pt-BR",
+        {
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+
+    const novoEvento = document.createElement("div");
+
+    novoEvento.classList.add("evento");
+
+
+    novoEvento.innerHTML = `
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <span>
+
+            ${mensagem}
+
+            <small>
+                ${hora}
+            </small>
+
+        </span>
+
+    `;
+
+
+    if (
+        listaEventos.children.length === 1 &&
+        listaEventos.children[0].textContent.includes("Nenhum alerta")
+    ) {
+
+        listaEventos.innerHTML = "";
+
+    }
+
+
+    listaEventos.prepend(novoEvento);
+
+
+    if (listaEventos.children.length > 5) {
+
+        listaEventos.removeChild(
+            listaEventos.lastElementChild
+        );
+
+    }
+
+}
+
+
+function atualizarTempo() {
+
+    tempoMonitorado += 1;
+
+    cardTempo.textContent = tempoMonitorado + "h";
+
+}
+
+
+btnAtualizar.addEventListener("click", function () {
+
+    graficoSemanal.update();
+
+    atualizarCards();
+
+});
+
+
+atualizarCards();
