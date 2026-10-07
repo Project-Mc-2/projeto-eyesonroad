@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Manrope", sans-serif;
 }
 
 body {
@@ -12,142 +12,421 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #021a31;
+    background: #021a31;
+    padding: 30px;
 }
 
 .container {
     width: 900px;
-    height: auto;
     min-height: 520px;
-    background: white;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    position: relative;
+
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: stretch;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.30);
 }
+
+
+/* FOTO */
 
 .container::before {
     content: "";
+
     position: absolute;
     left: 0;
     top: 0;
+
     width: 50%;
     height: 100%;
-    background-image: url("https://i.pinimg.com/736x/17/bb/a3/17bba316be43ea60435c383c448acfc5.jpg");
+
+    background-image:
+        linear-gradient(
+            rgba(2, 26, 49, 0.15),
+            rgba(2, 26, 49, 0.15)
+        ),
+        url("https://i.pinimg.com/736x/17/bb/a3/17bba316be43ea60435c383c448acfc5.jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1; /* Garante que fica atrás */
+
+    z-index: 1;
 }
+
+
+/* LOGIN */
 
 .login-box {
     width: 50%;
-    padding: 35px 40px;
-    position: relative; 
+
+    padding: 50px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #ffffff;
+
+    position: relative;
     z-index: 2;
 }
 
+
+/* TÍTULO */
+
 .login-box h1 {
+    color: #021a31;
+
     text-align: center;
-    margin-bottom: 20px;
-    color: #111;
-    font-size: 2rem;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+
+    margin-bottom: 8px;
 }
 
-/* Formulário */
+.login-box h1::after {
+    content: "";
+
+    display: block;
+
+    width: 35px;
+    height: 3px;
+
+    background: #0c5fc9;
+
+    border-radius: 10px;
+
+    margin: 10px auto 25px;
+}
+
+
+/* FORMULÁRIO */
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
-/* Campos lado a lado */
 .linha {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .linha input {
     flex: 1;
 }
 
-/* Inputs */
+
+/* INPUTS */
+
 input {
     width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: #f2f4f8;
+
+    padding: 14px 15px;
+
+    border: 1px solid #e2e6eb;
+
+    border-radius: 10px;
+
+    background: #f7f9fb;
+
+    color: #021a31;
+
+    font-family: "Manrope", sans-serif;
+
     font-size: 14px;
+    font-weight: 500;
+
     outline: none;
-    transition: .3s;
+
+    transition: 0.2s ease;
+}
+
+input::placeholder {
+    color: #9aa3ad;
+    font-weight: 400;
+}
+
+input:hover {
+    border-color: #cbd3dc;
 }
 
 input:focus {
-    background: #fff;
-    box-shadow: 0 0 0 2px rgba(12, 19, 95, 0.2);
+    background: #ffffff;
+
+    border-color: #0c5fc9;
+
+    box-shadow:
+        0 0 0 3px rgba(12, 95, 201, 0.10);
 }
 
-/* Botão */
+
+/* BOTÃO */
+
 button {
-    margin-top: 10px;
+    width: 100%;
+
+    margin-top: 8px;
+
     padding: 14px;
+
     border: none;
-    border-radius: 12px;
+
+    border-radius: 10px;
+
     background: #0c135f;
+
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
     cursor: pointer;
-    transition: .3s;
+
+    transition: 0.25s ease;
 }
 
 button:hover {
     background: #18228d;
-    transform: translateY(-2px);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 18px rgba(12, 19, 95, 0.25);
 }
+
+button:active {
+    transform: translateY(-1px);
+}
+
+
+/* ERRO */
 
 .erro {
     text-align: center;
-    color: red;
+
+    color: #d93025;
+
     margin-top: 10px;
-    font-weight: bold;
+
+    font-size: 13px;
+    font-weight: 600;
 }
+
+
+/* CADASTRO */
 
 .cadastro {
     text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #666;
+
+    margin-top: 18px;
+
+    color: #777;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .cadastro a {
     color: #0c135f;
-    font-weight: bold;
+
+    font-weight: 700;
+
     text-decoration: none;
+
+    transition: 0.2s ease;
 }
 
-/* Responsividade para celular */
-@media(max-width: 900px) {
+.cadastro a:hover {
+    color: #18228d;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 20px;
+    }
+
     .container {
         width: 95%;
-        justify-content: center;
+        min-height: 520px;
     }
 
     .container::before {
-        display: none;
+        width: 45%;
     }
 
     .login-box {
+        width: 55%;
+        padding: 40px;
+    }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    body {
+        min-height: 100vh;
+
+        padding: 25px 18px;
+
+        align-items: center;
+    }
+
+    .container {
         width: 100%;
-        padding: 30px;
+        max-width: 390px;
+
+        min-height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        border-radius: 25px;
+
+        overflow: hidden;
+    }
+
+    /* FOTO EM CIMA */
+
+    .container::before {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        width: 100%;
+        height: 240px;
+
+        flex-shrink: 0;
+
+        background-size: cover;
+        background-position: center;
+
+        display: block;
+    }
+
+    /* ÁREA DO LOGIN */
+
+    .login-box {
+        width: 100%;
+
+        padding: 30px 25px 28px;
+
+        display: flex;
+
+        background: #ffffff;
+    }
+
+    .login-box h1 {
+        font-size: 27px;
+
+        letter-spacing: -0.6px;
+
+        margin-bottom: 5px;
+    }
+
+    .login-box h1::after {
+        width: 32px;
+        height: 3px;
+
+        margin: 9px auto 20px;
+    }
+
+    form {
+        gap: 12px;
     }
 
     .linha {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+    }
+
+    input {
+        padding: 14px;
+
+        border-radius: 10px;
+
+        font-size: 13px;
+    }
+
+    button {
+        margin-top: 6px;
+
+        padding: 14px;
+
+        border-radius: 10px;
+
+        font-size: 14px;
+    }
+
+    .cadastro {
+        margin-top: 16px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* CELULAR PEQUENO */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 18px 14px;
+    }
+
+    .container {
+        max-width: 360px;
+
+        border-radius: 22px;
+    }
+
+    .container::before {
+        height: 215px;
+    }
+
+    .login-box {
+        padding: 26px 20px 24px;
+    }
+
+    .login-box h1 {
+        font-size: 25px;
+    }
+
+    input {
+        padding: 13px;
+    }
+
+    button {
+        padding: 13px;
+    }
+
+    .cadastro {
+        font-size: 12px;
     }
 }
