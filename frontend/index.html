@@ -1,102 +1,188 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>EyesOnRoad</title>
-
+    <meta name="theme-color" content="#050b16">
+    <meta name="description" content="Eyes on Road: tecnologia para identificar sinais de sonolência e ajudar a prevenir acidentes.">
+    <title>Eyes on Road</title>
     <link rel="stylesheet" href="./Css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+    <main class="pagina">
+        <div class="luz luz-1"></div>
+        <div class="luz luz-2"></div>
+        <div class="grade"></div>
 
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-gauge-high"></i>
-            <span>EyesOnRoad</span>
-        </div>
-    </header>
+        <section class="conteudo">
 
-    <section class="hero">
+            <div class="apresentacao">
+                <p class="subtitulo">
+                    TECNOLOGIA PARA A SEGURANÇA NO TRÂNSITO
+                </p>
 
-        <div class="hero-content">
+                <h1>
+                    Eyes on<br>
+                    <span>Road.</span>
+                </h1>
 
-            <p class="subtitle">
-                TECNOLOGIA • SEGURANÇA • INTELIGÊNCIA
-            </p>
+                <h2>Dirija com inteligência.</h2>
 
-            <h1>
-                EyesOn<span>Road</span>
-            </h1>
+                <div class="linha"></div>
 
-            <h2>
-                Dirija com inteligência
-            </h2>
+                <p class="descricao">
+                    Mais atenção ao volante, mais segurança no caminho.
+                    O Eyes on Road utiliza tecnologia para identificar
+                    sinais de sonolência e ajudar a prevenir acidentes.
+                </p>
 
-            <div class="line"></div>
+                <div class="botoes">
+                    <a href="./pages/cadastrarConta.html"
+                       class="botao botao-principal">
+                        Começar agora
+                        <span aria-hidden="true">↗</span>
+                    </a>
 
-            <p class="description">
-                A plataforma completa para quem valoriza segurança,
-                performance e tranquilidade.
-            </p>
+                    <a href="./pages/logarConta.html"
+                       class="botao botao-secundario">
+                        Já tenho uma conta
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
 
-            <div class="buttons">
+                <div class="destaques">
+                    <div class="destaque">
+                        <span class="destaque-numero">01</span>
+                        <div>
+                            <strong>Monitoramento</strong>
+                            <p>Atenção em tempo real</p>
+                        </div>
+                    </div>
 
-                <a href="./pages/logarConta.html" class="btn-um">
-                    <i class="fa-solid fa-lock"></i>
-                    Logar Conta
-                </a>
+                    <div class="destaque">
+                        <span class="destaque-numero">02</span>
+                        <div>
+                            <strong>Detecção inteligente</strong>
+                            <p>Sinais de sonolência</p>
+                        </div>
+                    </div>
 
-                <a href="./pages/cadastrarConta.html" class="btn-dois">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Criar Conta
-                </a>
-
+                    <div class="destaque">
+                        <span class="destaque-numero">03</span>
+                        <div>
+                            <strong>Mais segurança</strong>
+                            <p>Prevenção de acidentes</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </div>
+            <div class="visual">
+                <div class="imagem-container">
+                    <img
+                        id="imagemCarro"
+                        class="carro"
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85"
+                        alt="Carro esportivo elegante"
+                        fetchpriority="high"
+                    >
 
-    </section>
+                    <div class="sombra-imagem"></div>
 
-    <section class="cards">
+                    <div class="texto-imagem">
+                        <span class="barra-imagem"></span>
+                        <div class="texto-imagem-conteudo">
+                            <p>PRIORIZE SUA VIDA</p>
+                            <span>Tecnologia para chegar em segurança.</span>
+                        </div>
+                    </div>
 
-        <div class="card">
-            <i class="fa-solid fa-location-dot"></i>
+                    <div class="indicadores" aria-label="Imagens do carrossel">
+                        <span class="indicador ativo"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                    </div>
+                </div>
 
-            <div>
-                <h3>Monitore</h3>
-                <p>Acompanhe seu veículo em tempo real.</p>
+                <div class="legenda-visual">
+                    <span>01 / 04</span>
+                    <span>SAFETY · TECHNOLOGY · MOBILITY</span>
+                </div>
             </div>
-        </div>
 
-        <div class="card">
-            <i class="fa-regular fa-bell"></i>
+        </section>
+    </main>
 
-            <div>
-                <h3>Seja Alertado</h3>
-                <p>Receba alertas inteligentes.</p>
-            </div>
-        </div>
+    <script>
+        const imagens = [
+            {
+                src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85",
+                alt: "Carro esportivo elegante"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85",
+                alt: "Carro esportivo moderno"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=85",
+                alt: "Automóvel em destaque"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=85",
+                alt: "Carro moderno"
+            }
+        ];
 
-        <div class="card">
-            <i class="fa-solid fa-shield"></i>
+        const imagemCarro = document.getElementById("imagemCarro");
+        const indicadores = document.querySelectorAll(".indicador");
+        const legendaNumero = document.querySelector(".legenda-visual span");
 
-            <div>
-                <h3>Dirija com Confiança</h3>
-                <p>Tecnologia avançada para proteger você.</p>
-            </div>
-        </div>
+        let imagemAtual = 0;
 
-    </section>
+        imagens.forEach((item) => {
+            const previa = new Image();
+            previa.src = item.src;
+        });
 
-    <footer>
-        © 2026 EyesOnRoad. Todos os direitos reservados.
-    </footer>
+        function trocarImagem() {
+            const proxima = (imagemAtual + 1) % imagens.length;
+            const previa = new Image();
 
+            previa.onload = () => {
+                imagemCarro.classList.add("trocando");
+
+                setTimeout(() => {
+                    imagemCarro.src = previa.src;
+                    imagemCarro.alt = imagens[proxima].alt;
+                    imagemAtual = proxima;
+
+                    indicadores.forEach((indicador, indice) => {
+                        indicador.classList.toggle(
+                            "ativo",
+                            indice === imagemAtual
+                        );
+                    });
+
+                    legendaNumero.textContent =
+                        `0${imagemAtual + 1} / 0${imagens.length}`;
+
+                    requestAnimationFrame(() => {
+                        imagemCarro.classList.remove("trocando");
+                    });
+                }, 350);
+            };
+
+            previa.onerror = () => {
+                console.warn("Não foi possível carregar a próxima imagem.");
+            };
+
+            previa.src = imagens[proxima].src;
+        }
+
+        setInterval(trocarImagem, 3000);
+    </script>
 </body>
-
 </html>
