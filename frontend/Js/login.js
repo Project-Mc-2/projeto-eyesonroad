@@ -1,42 +1,47 @@
+
 const API_URL = "http://localhost:8080/usuarios/login";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const senhaInput = document.getElementById('senha');
-    const erroMsg = document.getElementById('erroMsg');
+document.addEventListener("DOMContentLoaded", () => {
 
-    loginForm.addEventListener('submit', async (event) => {
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const senhaInput = document.getElementById("senha");
+    const erroMsg = document.getElementById("erroMsg");
+    const botao = loginForm.querySelector('button[type="submit"]');
+
+    loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const emailDigitado = emailInput.value.trim();
         const senhaDigitada = senhaInput.value.trim();
 
-        erroMsg.textContent = '';
-        erroMsg.style.color = '#ff4d4d';
+        erroMsg.textContent = "";
+        erroMsg.style.color = "#ff8d96";
 
         if (!emailDigitado || !senhaDigitada) {
-            erroMsg.textContent = 'Por favor, preencha todos os campos.';
+            erroMsg.textContent = "Preencha todos os campos.";
             return;
         }
 
-       
         const dadosLogin = {
-            nome: "Usuario Temporario",      
+            nome: "Usuario Temporario",
             login: emailDigitado,
-            senha: senhaDigitada,                
-            email: emailDigitado, 
-            telefone: "11999999999",    
+            senha: senhaDigitada,
+            email: emailDigitado,
+            telefone: "11999999999",
             dataNascimento: "2000-01-01",
             cpf: "00000000000",
-            tipo: "MOTORISTA",          
-            carro: {                    
+            tipo: "MOTORISTA",
+            carro: {
                 marca: "N/A",
                 modelo: "N/A",
-                placa: "XXX0000", 
-                ano: 2026                
+                placa: "XXX0000",
+                ano: 2026
             }
         };
+
+        botao.disabled = true;
+        botao.textContent = "ENTRANDO...";
 
         try {
             const response = await fetch(API_URL, {
@@ -48,28 +53,52 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
+
+                const textoResposta = await response.text();
+
+                let dadosUsuario = {};
+
                 try {
-                    const dadosUsuario = await response.json();
-                    localStorage.setItem('usuarioLogado', JSON.stringify(dadosUsuario));
+                    dadosUsuario = textoResposta ? JSON.parse(textoResposta) : {};
                 } catch (e) {
-                    console.log("Resposta não continha JSON.");
+                    dadosUsuario = {};
                 }
 
-                erroMsg.style.color = '#2ecc71'; 
-                erroMsg.textContent = 'Login efetuado com sucesso! Redirecionando...';
+                localStorage.setItem(
+                    "usuarioLogado",
+                    JSON.stringify(dadosUsuario)
+                );
 
-                setTimeout(() => {
-                    window.location.href = '../pages/resumo.html'; 
-                }, 1500);
+                const nomeMotorista = dadosUsuario.nome || emailDigitado;
+
+                localStorage.setItem("nomeMotorista", nomeMotorista);
+
+                window.location.href = "../pages/resumo.html";
+
+                return;
+            }
+
+            const textoErro = await response.text();
+
+            if (
+                response.status === 401 ||
+                response.status === 403 ||
+                /usuário ou senha incorretos|usuario ou senha incorretos|senha inválida|senha invalida|login inválido|login invalido/i.test(textoErro)
+            ) {
+                erroMsg.textContent = "E-mail ou senha incorretos.";
+                senhaInput.value = "";
+                senhaInput.focus();
 
             } else {
-                erroMsg.textContent = 'Usuário ou senha incorretos.';
-                senhaInput.value = '';
-                senhaInput.focus();
+                erroMsg.textContent = "Erro ao fazer login. Tente novamente.";
             }
+
         } catch (error) {
-            console.error("Erro na requisição:", error);
-            erroMsg.textContent = "Não foi possível conectar ao servidor.";
+            erroMsg.textContent = "Erro ao fazer login. Tente novamente.";
+
+        } finally {
+            botao.disabled = false;
+            botao.textContent = "ENTRAR";
         }
     });
 });

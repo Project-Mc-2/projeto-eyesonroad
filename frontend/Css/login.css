@@ -618,3 +618,10 @@ button:active {
         transition: none !important;
     }
 }
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

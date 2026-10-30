@@ -619,11 +619,7 @@ footer {
         animation-iteration-count: 1 !important;
     }
 }
-/* ========================================
-   RESPONSIVIDADE COMPLETA - EYES ON ROAD
-======================================== */
 
-/* Evita rolagem horizontal */
 html,
 body {
     width: 100%;
