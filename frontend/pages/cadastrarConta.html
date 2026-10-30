@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Monitor de Sono</title>
     <link rel="stylesheet" href="../Css/cadastro.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="login-box">
-        <h1>CADASTRO</h1>
+    <div class="container">
+        <div class="login-box">
+            <h1>
+                <a href="/frontend/index.html">CADASTRO</a>
+            </h1>
+            <form id="loginForm">
+                <input type="text" id="usuario" placeholder="Nome do Usuário" required>
 
-        <form id="loginForm">
-            <input type="text" id="usuario" placeholder="Nome do Usuário" required>
-            
-            <div class="linha">
-                <input type="password" id="senha" placeholder="Senha" required>
-                <input type="email" id="email" placeholder="Email" required>
-            </div>
+                <div class="linha">
+                    <input type="password" id="senha" placeholder="Senha" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
 
-            <div class="linha">
-                <input type="text" id="cpf" placeholder="CPF" required>
-                <input type="tel" id="telefone" placeholder="Telefone" required>
-            </div>
+                <div class="linha">
+                    <input type="text" id="cpf" placeholder="CPF" required>
+                    <input type="tel" id="telefone" placeholder="Telefone" required>
+                </div>
 
-            <div class="linha">
-                <input type="date" id="dataNascimento" required>
-                <input type="text" id="placa" placeholder="Placa do Carro" required>
-            </div>
+                <div class="linha">
+                    <input type="date" id="dataNascimento" required>
+                    <input type="text" id="placa" placeholder="Placa do Carro" required>
+                </div>
 
-            <button type="submit">CADASTRAR</button>
-        </form>
+                <button type="submit">CADASTRAR</button>
+            </form>
 
-        <p class="erro" id="erroMsg"></p>
+            <p class="erro" id="erroMsg"></p>
 
-        <p class="cadastro">
-            Já tem conta? <a href="../pages/logarConta.html">Clique aqui!</a>
-        </p>
+            <p class="cadastro">
+                Já tem conta? <a href="../pages/logarConta.html">Clique aqui!</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<script src="../Js/cadastro.js"></script>
+    <script src="../Js/cadastro.js"></script>
 </body>
+
 </html>

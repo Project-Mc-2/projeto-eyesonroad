@@ -22,6 +22,12 @@ html {
     scroll-behavior: smooth;
 }
 
+h1 a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     background:

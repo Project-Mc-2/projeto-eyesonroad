@@ -19,6 +19,12 @@
     font-family: 'DM Sans', sans-serif;
 }
 
+h1 a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+}
+
 html,
 body {
     width: 100%;

@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Monitor de Sono</title>
     <link rel="stylesheet" href="../Css/login.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="login-box">
-        <h1>LOGIN</h1>
+    <div class="container">
+        <div class="login-box">
+            <h1>
+                <a href="/frontend/index.html">LOGIN</a>
+            </h1>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="senha" placeholder="Senha" required>
 
-        <form id="loginForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit">ENTRAR</button>
+            </form>
 
-            <button type="submit">ENTRAR</button>
-        </form>
+            <p class="erro" id="erroMsg"></p>
 
-        <p class="erro" id="erroMsg"></p>
-
-        <p class="cadastro">
-            Não possui conta? <a href="../pages/cadastrarConta.html">Clique aqui!</a>
-        </p>
+            <p class="cadastro">
+                Não possui conta? <a href="../pages/cadastrarConta.html">Clique aqui!</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<script src="../Js/login.js"></script>
+    <script src="../Js/login.js"></script>
 </body>
+
 </html>

@@ -59,8 +59,6 @@ body {
     overflow-x: hidden;
 }
 
-/* GRADE DISCRETA DO FUNDO */
-
 body::before {
     content: "";
     position: fixed;
@@ -83,8 +81,6 @@ body::before {
     background-size: 72px 72px;
 }
 
-/* BRILHO AZUL AO FUNDO */
-
 body::after {
     content: "";
     position: fixed;
@@ -100,8 +96,6 @@ body::after {
     filter: blur(100px);
     pointer-events: none;
 }
-
-/* CARTÃO PRINCIPAL */
 
 .container {
     position: relative;
@@ -126,8 +120,6 @@ body::after {
 
     animation: aparecer 0.7s ease both;
 }
-
-/* SUA FOTO DO PINTEREST */
 
 .container::before {
     content: "";
@@ -157,8 +149,6 @@ body::after {
     border-right: 1px solid var(--borda);
 }
 
-/* PAINEL DO FORMULÁRIO */
-
 .login-box {
     position: relative;
     z-index: 1;
@@ -172,8 +162,6 @@ body::after {
 
     background: rgba(9, 22, 42, 0.98);
 }
-
-/* TÍTULO NO ESTILO DA HOMEPAGE */
 
 .login-box h1 {
     color: var(--texto);
@@ -200,8 +188,6 @@ body::after {
     background: var(--azul-claro);
 }
 
-/* FORMULÁRIO */
-
 form {
     display: flex;
     flex-direction: column;
@@ -218,8 +204,6 @@ form {
     flex: 1;
     min-width: 0;
 }
-
-/* CAMPOS */
 
 input {
     width: 100%;
@@ -262,8 +246,6 @@ input:focus {
         0 0 0 3px rgba(104, 165, 255, 0.08);
 }
 
-/* CAMPO DE DATA */
-
 input[type="date"] {
     color-scheme: dark;
 }
@@ -272,8 +254,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
     opacity: 0.8;
 }
-
-/* BOTÃO CADASTRAR */
 
 button {
     width: 100%;
@@ -315,8 +295,6 @@ button:active {
     transform: translateY(0);
 }
 
-/* MENSAGEM DE ERRO */
-
 .erro {
     color: #ff8d96;
     font-family: 'DM Sans', sans-serif;
@@ -326,7 +304,11 @@ button:active {
     margin-top: 12px;
 }
 
-/* LINK PARA LOGIN */
+h1 a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+}
 
 .cadastro {
     margin-top: 22px;
@@ -351,8 +333,6 @@ button:active {
     text-decoration: underline;
 }
 
-/* ANIMAÇÃO DE ENTRADA */
-
 @keyframes aparecer {
     from {
         opacity: 0;
@@ -364,8 +344,6 @@ button:active {
         transform: translateY(0);
     }
 }
-
-/* TABLETS */
 
 @media (min-width: 601px) and (max-width: 850px) {
     body {
@@ -409,8 +387,6 @@ button:active {
         font-size: 10px;
     }
 }
-
-/* CELULARES */
 
 @media (max-width: 600px) {
     body {
@@ -488,8 +464,6 @@ button:active {
     }
 }
 
-/* CELULARES PEQUENOS */
-
 @media (max-width: 380px) {
     body {
         padding: 15px 10px;
@@ -522,8 +496,6 @@ button:active {
         font-size: 11px;
     }
 }
-
-/* TELAS BAIXAS */
 
 @media (min-width: 851px) and (max-height: 650px) {
     body {
@@ -560,8 +532,6 @@ button:active {
         margin-top: 15px;
     }
 }
-
-/* ACESSIBILIDADE */
 
 @media (prefers-reduced-motion: reduce) {
     *,
