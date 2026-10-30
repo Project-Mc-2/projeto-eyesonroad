@@ -758,3 +758,194 @@ a {
         transition-duration: 0.01ms !important;
     }
 }
+/* AJUSTES PARA TELAS GRANDES */
+
+@media (min-width: 901px) {
+    .conteudo {
+        width: 100%;
+        max-width: 1800px;
+        min-height: 100vh;
+        padding: 50px 8%;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(50px, 6vw, 100px);
+    }
+
+    /* TÍTULO EYES ON ROAD */
+
+    .apresentacao h1 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(76px, 6vw, 100px);
+        font-weight: 800;
+        letter-spacing: -4px;
+        line-height: 0.98;
+    }
+
+    .apresentacao h1 span {
+        color: var(--azul-claro);
+        font-weight: 800;
+    }
+
+    /* SUBTÍTULO */
+
+    .subtitulo {
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    .apresentacao h2 {
+        font-size: clamp(25px, 2vw, 32px);
+        margin-top: 28px;
+    }
+
+    /* DESCRIÇÃO */
+
+    .descricao {
+        max-width: 550px;
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    /* BOTÕES */
+
+    .botoes {
+        gap: 14px;
+        margin-top: 32px;
+    }
+
+    .botao {
+        min-height: 55px;
+        padding: 0 24px;
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .botao span {
+        font-size: 20px;
+    }
+
+    /* DESTAQUES */
+
+    .destaques {
+        gap: 22px;
+        margin-top: 42px;
+        padding-top: 25px;
+    }
+
+    .destaque {
+        gap: 13px;
+    }
+
+    .destaque-numero {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .destaque strong {
+        font-size: 14px;
+    }
+
+    .destaque p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    /* IMAGEM DO CARRO */
+
+    .visual {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .imagem-container {
+        width: 100%;
+        height: clamp(350px, 34vw, 480px);
+    }
+
+    /* TEXTO SOBRE A IMAGEM */
+
+    .texto-imagem {
+        left: 25px;
+        bottom: 25px;
+        gap: 14px;
+    }
+
+    .barra-imagem {
+        height: 42px;
+    }
+
+    .texto-imagem p {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .texto-imagem span:last-child {
+        font-size: 12px;
+    }
+
+    /* INDICADORES DA IMAGEM */
+
+    .indicadores {
+        right: 22px;
+        bottom: 28px;
+        gap: 6px;
+    }
+
+    .indicador {
+        width: 7px;
+        height: 7px;
+    }
+
+    .indicador.ativo {
+        width: 22px;
+    }
+
+    /* LEGENDA */
+
+    .legenda-visual {
+        margin-top: 17px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* AJUSTE PARA NOTEBOOKS E TELAS MENORES */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .conteudo {
+        padding: 40px 5%;
+        gap: 35px;
+    }
+
+    .apresentacao h1 {
+        font-size: clamp(65px, 6vw, 78px);
+        letter-spacing: -3px;
+    }
+
+    .apresentacao h2 {
+        font-size: 24px;
+    }
+
+    .descricao {
+        font-size: 14px;
+    }
+
+    .botao {
+        padding: 0 15px;
+        font-size: 12px;
+    }
+
+    .imagem-container {
+        height: clamp(300px, 32vw, 380px);
+    }
+}
+
+/* MANTÉM O LAYOUT ADAPTÁVEL EM CELULARES */
+
+@media (max-width: 900px) {
+    .apresentacao h1 {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+    }
+}
