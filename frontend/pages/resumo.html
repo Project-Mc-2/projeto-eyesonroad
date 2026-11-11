@@ -1,14 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Monitoramento</title>
+    <title>EyesOnRoad Monitor</title>
 
     <link rel="stylesheet" href="../Css/resumo.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -16,253 +19,204 @@
 <body>
 
     <header>
-
         <div class="logo">
-
-            <h1>
-                <a href="/frontend/index.html">EyesOnRoad Monitor</a>
-            </h1>
-
-            <span>
-                Motorista:
-                <strong id="nomeMotorista">---</strong>
-            </span>
-
+            <h2>
+                <a href="../index.html">EyesOnRoad Monitor</a>
+            </h2>
+            <span>Monitoramento e segurança do motorista</span>
         </div>
-
 
         <div class="status">
 
             <div class="status-card">
-
-                <i class="fa-solid fa-car"></i>
-
-                <span>
-                    Veículo Ativo
-                </span>
-
+                <i class="fa-solid fa-user"></i>
+                <span>Motorista: <strong id="nomeMotorista">Carregando...</strong></span>
             </div>
 
-
             <div class="status-card">
+                <i class="fa-solid fa-car"></i>
+                <span>Veículo Ativo</span>
+            </div>
 
-                <i class="fa-solid fa-shield-halved"></i>
-
-                <span>
-                    Sistema Online
-                </span>
-
+            <div class="status-card" id="indicadorCamera">
+                <i class="fa-solid fa-circle"></i>
+                <span>Aguardando API</span>
             </div>
 
         </div>
-
     </header>
-
 
     <main>
 
-
         <section class="cards">
 
-
             <div class="card">
-
-                <i class="fa-solid fa-triangle-exclamation"></i>
-
+                <i class="fa-solid fa-bell"></i>
                 <h1 id="totalAlertas">0</h1>
-
-                <p>
-                    Alertas Registrados
-                </p>
-
+                <p>Total de alertas</p>
             </div>
 
-
             <div class="card">
-
-                <i class="fa-solid fa-eye-slash"></i>
-
+                <i class="fa-solid fa-eye"></i>
                 <h1 id="totalSonolencia">0</h1>
-
-                <p>
-                    Episódios de Sonolência
-                </p>
-
+                <p>Alertas de sonolência</p>
             </div>
 
-
             <div class="card">
-
-                <i class="fa-solid fa-clock"></i>
-
-                <h1 id="tempoMonitorado">0h</h1>
-
-                <p>
-                    Tempo Monitorado
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
                 <i class="fa-solid fa-shield-halved"></i>
-
                 <h1 id="indiceSeguranca">100%</h1>
-
-                <p>
-                    Índice de Segurança
-                </p>
-
+                <p>Índice de segurança</p>
             </div>
-
 
         </section>
-
 
         <section class="dashboard">
 
-
-            <div class="grafico">
+            <div class="monitoramento">
 
                 <div class="titulo">
+                    <div>
+                        <h3>Monitoramento em Tempo Real</h3>
+                        <span>Acompanhe as informações detectadas pelo sistema</span>
+                    </div>
+                </div>
+
+                <div class="informacoes-monitoramento">
+
+                    <div class="informacao">
+                        <div class="informacao-icone">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div>
+                            <span>Último alerta</span>
+                            <h4 id="ultimoAlerta">Nenhum alerta registrado</h4>
+                        </div>
+                    </div>
+
+                    <div class="informacao">
+                        <div class="informacao-icone">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>Horário da última ocorrência</span>
+                            <h4 id="horarioUltimoAlerta">--:--</h4>
+                        </div>
+                    </div>
+
+                    <div class="informacao">
+                        <div class="informacao-icone">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Estado do motorista</span>
+                            <h4 id="estadoAtencao">Aguardando monitoramento</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="situacao-card" id="situacaoCard">
+                    <i class="fa-solid fa-shield-heart"></i>
 
                     <div>
-
-                        <h3>Resumo Semanal</h3>
-
-                        <span>
-                            Quantidade de alertas
-                        </span>
-
+                        <strong>Sistema em monitoramento</strong>
+                        <p>Aguardando informações do sistema de detecção.</p>
                     </div>
-
-
-                    <button id="btnAtualizar">
-
-                        <i class="fa-solid fa-rotate"></i>
-
-                        Atualizar
-
-                    </button>
-
-                </div>
-
-
-                <div class="grafico-area">
-
-                    <canvas id="graficoSemanal"></canvas>
-
                 </div>
 
             </div>
 
+            <section class="voce-sabia">
 
-            <div class="eventos">
+                <div class="voce-sabia-topo">
+                    <span class="voce-sabia-tag">VOCÊ SABIA?</span>
 
-                <div class="titulo-eventos">
+                    <div class="voce-sabia-icone">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                </div>
+
+                <div class="voce-sabia-conteudo">
+
+                    <span class="voce-sabia-numero">15%–20%</span>
 
                     <h3>
-                        Eventos Recentes
+                        dos acidentes podem ter relação com a fadiga do motorista.
                     </h3>
 
-                </div>
-
-
-                <div id="listaEventos">
-
-                    <div class="evento">
-
-                        Nenhum alerta registrado.
-
-                    </div>
+                    <p>
+                        Dirigir com sono diminui a atenção, prejudica os reflexos
+                        e aumenta o risco de acidentes. Até alguns segundos de
+                        distração podem fazer toda a diferença.
+                    </p>
 
                 </div>
 
-            </div>
+                <div class="carro-ilustracao">
+                    <div class="estrada"></div>
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
 
+                <div class="voce-sabia-rodape">
+                    <span class="ponto-azul"></span>
+                    <strong>EyesOnRoad</strong>
+                    <span>Sua segurança em primeiro lugar.</span>
+                </div>
+
+            </section>
 
         </section>
-
 
         <section class="dicas">
 
             <h3>
-
-                <i class="fa-regular fa-lightbulb"></i>
-
+                <i class="fa-solid fa-lightbulb"></i>
                 Dicas de Segurança
-
             </h3>
-
 
             <div class="dicas-grid">
 
-
                 <div class="dica-card">
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    <h4>
-                        Faça Pausas
-                    </h4>
-
-                    <p>
-                        Pare a cada 2 horas para descansar.
-                    </p>
-
-                </div>
-
-
-                <div class="dica-card">
-
-                    <i class="fa-solid fa-droplet"></i>
-
-                    <h4>
-                        Mantenha-se Hidratado
-                    </h4>
-
-                    <p>
-                        Beba água regularmente durante a viagem.
-                    </p>
-
-                </div>
-
-
-                <div class="dica-card">
-
                     <i class="fa-solid fa-bed"></i>
-
-                    <h4>
-                        Durma Bem
-                    </h4>
-
+                    <h4>Descanse antes de dirigir</h4>
                     <p>
-                        Tenha pelo menos 8 horas de sono.
+                        Uma boa noite de sono ajuda a manter a atenção
+                        e os reflexos durante o trajeto.
                     </p>
-
                 </div>
 
+                <div class="dica-card">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <h4>Faça pausas</h4>
+                    <p>
+                        Em viagens longas, pare em locais seguros
+                        para descansar e recuperar a concentração.
+                    </p>
+                </div>
+
+                <div class="dica-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <h4>Fique atento aos sinais</h4>
+                    <p>
+                        Bocejos frequentes, olhos pesados e dificuldade
+                        de concentração podem indicar sonolência.
+                    </p>
+                </div>
 
             </div>
 
         </section>
 
-
     </main>
 
-
     <footer>
-
-        © 2026 - EyesOnRoad. Todos os direitos reservados.
-
+        <p>EyesOnRoad Monitor © 2026 — Tecnologia a favor da segurança no trânsito.</p>
     </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="../Js/resumo.js"></script>
 
 </body>
-
 </html>

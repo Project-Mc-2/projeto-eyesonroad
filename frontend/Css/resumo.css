@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
     --fundo: #050b16;
@@ -9,7 +8,6 @@
     --texto: #f3f6fc;
     --texto-secundario: #a0b0c8;
     --borda: rgba(135, 169, 218, 0.2);
-    --brilho: rgba(104, 165, 255, 0.12);
 }
 
 * {
@@ -22,25 +20,11 @@ html {
     scroll-behavior: smooth;
 }
 
-h1 a {
-    text-decoration: none;
-    color: inherit;
-    font: inherit;
-}
-
 body {
     font-family: "DM Sans", sans-serif;
     background:
-        radial-gradient(
-            ellipse at 15% 0%,
-            rgba(30, 75, 135, 0.18),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 90% 40%,
-            rgba(23, 61, 111, 0.12),
-            transparent 35%
-        ),
+        radial-gradient(ellipse at 15% 0%, rgba(30, 75, 135, 0.18), transparent 40%),
+        radial-gradient(ellipse at 90% 40%, rgba(23, 61, 111, 0.12), transparent 35%),
         linear-gradient(135deg, #050b16 0%, #081326 55%, #050b16 100%);
     color: var(--texto);
     min-height: 100vh;
@@ -72,21 +56,26 @@ header {
 
 .logo h2 {
     font-family: "Manrope", sans-serif;
-    color: #ffffff;
     font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.8px;
+}
+
+.logo h2 a,
+.logo h2 a:visited,
+.logo h2 a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo h2 a:hover {
+    color: var(--azul-claro);
 }
 
 .logo span {
     color: var(--texto-secundario);
     font-size: 12px;
     font-weight: 500;
-}
-
-.logo strong {
-    color: var(--azul-claro);
-    font-weight: 700;
 }
 
 .status {
@@ -103,8 +92,7 @@ header {
     gap: 10px;
     align-items: center;
     border: 1px solid var(--borda);
-    transition: background 0.25s ease, border-color 0.25s ease,
-                transform 0.25s ease;
+    transition: 0.25s ease;
     font-size: 13px;
     font-weight: 600;
     color: var(--texto);
@@ -133,24 +121,19 @@ main {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
 .card {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-        145deg,
-        rgba(16, 45, 83, 0.76),
-        rgba(9, 22, 42, 0.92)
-    );
+    background: linear-gradient(145deg, rgba(16, 45, 83, 0.76), rgba(9, 22, 42, 0.92));
     border-radius: 15px;
     padding: 26px;
     border: 1px solid var(--borda);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, border-color 0.25s ease,
-                box-shadow 0.25s ease;
+    transition: 0.25s ease;
 }
 
 .card::before {
@@ -160,12 +143,7 @@ main {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--azul-claro),
-        transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--azul-claro), transparent);
     opacity: 0.65;
 }
 
@@ -205,7 +183,7 @@ main {
     line-height: 1.6;
 }
 
-/* ÁREA DO DASHBOARD */
+/* DASHBOARD */
 
 .dashboard {
     display: grid;
@@ -215,21 +193,20 @@ main {
     align-items: stretch;
 }
 
-.grafico,
-.eventos {
+.monitoramento,
+.voce-sabia {
     min-width: 0;
-    background: linear-gradient(
-        145deg,
-        rgba(9, 22, 42, 0.94),
-        rgba(8, 19, 38, 0.98)
-    );
     border-radius: 15px;
-    padding: 24px;
     border: 1px solid var(--borda);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
 }
 
-/* TÍTULOS E BOTÕES */
+/* MONITORAMENTO EM TEMPO REAL */
+
+.monitoramento {
+    background: linear-gradient(145deg, rgba(9, 22, 42, 0.94), rgba(8, 19, 38, 0.98));
+    padding: 24px;
+}
 
 .titulo {
     display: flex;
@@ -255,120 +232,249 @@ main {
     line-height: 1.5;
 }
 
-.titulo button {
-    flex-shrink: 0;
-    background: rgba(16, 45, 83, 0.8);
-    border: 1px solid rgba(104, 165, 255, 0.22);
-    color: var(--texto);
-    padding: 10px 15px;
-    border-radius: 9px;
-    cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease,
-                transform 0.25s ease;
-    font-family: "DM Sans", sans-serif;
+.informacoes-monitoramento {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.informacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(16, 45, 83, 0.42);
+    border: 1px solid rgba(135, 169, 218, 0.12);
+    border-radius: 11px;
+    padding: 17px;
+    transition: 0.25s ease;
+}
+
+.informacao:hover {
+    background: rgba(24, 62, 108, 0.48);
+    border-color: rgba(104, 165, 255, 0.3);
+    transform: translateX(3px);
+}
+
+.informacao-icone {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 11px;
+    background: rgba(104, 165, 255, 0.1);
+    color: var(--azul-claro);
+    font-size: 18px;
+}
+
+.informacao span {
+    display: block;
+    color: var(--texto-secundario);
     font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.informacao h4 {
+    color: #ffffff;
+    font-size: 14px;
     font-weight: 700;
 }
 
-.titulo button:hover {
-    background: var(--azul-hover);
-    border-color: rgba(104, 165, 255, 0.5);
-    transform: translateY(-2px);
-}
-
-.titulo button:focus-visible {
-    outline: 2px solid var(--azul-claro);
-    outline-offset: 3px;
-}
-
-.titulo button i {
-    margin-right: 7px;
-    color: var(--azul-claro);
-}
-
-/* GRÁFICO SEMANAL */
-
-.grafico-area {
-    width: 100%;
-    height: 300px;
-    position: relative;
-    background: rgba(5, 11, 22, 0.65);
-    border: 1px solid rgba(135, 169, 218, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    overflow: hidden;
-}
-
-#graficoSemanal {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* EVENTOS RECENTES */
-
-.titulo-eventos {
-    margin-bottom: 22px;
-}
-
-.titulo-eventos h3 {
-    color: #ffffff;
-    font-family: "Manrope", sans-serif;
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: -0.4px;
-}
-
-.evento {
+.situacao-card {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(16, 45, 83, 0.42);
-    color: var(--texto);
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 12px;
-    border: 1px solid rgba(135, 169, 218, 0.1);
-    border-left: 3px solid var(--azul-claro);
-    font-size: 13px;
-    font-weight: 500;
-    transition: background 0.25s ease, border-color 0.25s ease;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 17px;
+    background: rgba(104, 165, 255, 0.08);
+    border: 1px solid rgba(104, 165, 255, 0.2);
+    border-radius: 11px;
 }
 
-.evento:hover {
-    background: rgba(24, 62, 108, 0.48);
-    border-color: rgba(104, 165, 255, 0.25);
-    border-left-color: var(--azul-claro);
-}
-
-.evento i {
+.situacao-card > i {
     color: var(--azul-claro);
-    font-size: 15px;
-    margin-top: 3px;
-    flex-shrink: 0;
+    font-size: 24px;
 }
 
-.evento span {
+.situacao-card strong {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.situacao-card p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* CARD VOCÊ SABIA */
+
+.voce-sabia {
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    min-width: 0;
+    justify-content: space-between;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(104, 165, 255, 0.17), transparent 35%),
+        linear-gradient(145deg, #102d53, #08172d);
+    border: 1px solid rgba(104, 165, 255, 0.25);
+    transition: 0.25s ease;
 }
 
-.evento small {
-    color: var(--texto-secundario);
+.voce-sabia:hover {
+    transform: translateY(-4px);
+    border-color: rgba(104, 165, 255, 0.45);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.voce-sabia::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(104, 165, 255, 0.06);
+    right: -65px;
+    bottom: 60px;
+}
+
+.voce-sabia-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.voce-sabia-tag {
+    color: #8bbcff;
+    background: rgba(104, 165, 255, 0.13);
+    padding: 8px 13px;
+    border-radius: 20px;
     font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.voce-sabia-icone {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8bbcff;
+    background: rgba(104, 165, 255, 0.12);
+    border: 1px solid rgba(104, 165, 255, 0.18);
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+.voce-sabia-conteudo {
+    margin-top: 22px;
+    position: relative;
+    z-index: 2;
+}
+
+.voce-sabia-numero {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 39px;
+    font-weight: 800;
+    color: var(--azul-claro);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.voce-sabia-conteudo h3 {
+    color: #f3f6fc;
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
     line-height: 1.5;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.voce-sabia-conteudo p {
+    color: #aebed4;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.carro-ilustracao {
+    position: relative;
+    height: 68px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.carro-ilustracao > i {
+    position: relative;
+    z-index: 3;
+    color: #8bbcff;
+    font-size: 43px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    animation: carroMovimento 3s ease-in-out infinite alternate;
+}
+
+.estrada {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(139, 188, 255, 0.65) 0 18px,
+        transparent 18px 30px
+    );
+}
+
+.voce-sabia-rodape {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aebed4;
+    font-size: 11px;
+    position: relative;
+    z-index: 2;
+}
+
+.voce-sabia-rodape strong {
+    color: #8bbcff;
+}
+
+.ponto-azul {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--azul-claro);
+    margin-right: 5px;
+    box-shadow: 0 0 8px rgba(104, 165, 255, 0.7);
+}
+
+@keyframes carroMovimento {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(18px);
+    }
 }
 
 /* DICAS DE SEGURANÇA */
 
 .dicas {
-    background: linear-gradient(
-        145deg,
-        rgba(9, 22, 42, 0.94),
-        rgba(8, 19, 38, 0.98)
-    );
+    background: linear-gradient(145deg, rgba(9, 22, 42, 0.94), rgba(8, 19, 38, 0.98));
     margin-top: 26px;
     padding: 25px;
     border-radius: 15px;
@@ -401,8 +507,7 @@ main {
     padding: 24px;
     border-radius: 12px;
     border: 1px solid rgba(135, 169, 218, 0.12);
-    transition: background 0.25s ease, transform 0.25s ease,
-                border-color 0.25s ease;
+    transition: 0.25s ease;
 }
 
 .dica-card:hover {
@@ -430,7 +535,6 @@ main {
     font-family: "Manrope", sans-serif;
     font-size: 15px;
     font-weight: 800;
-    letter-spacing: -0.2px;
 }
 
 .dica-card p {
@@ -459,15 +563,11 @@ footer {
     color: #ffffff;
 }
 
-/* TABLETS E TELAS MÉDIAS */
+/* TABLETS */
 
 @media (max-width: 1000px) {
     .dashboard {
         grid-template-columns: 1fr;
-    }
-
-    .eventos {
-        min-width: 0;
     }
 
     header {
@@ -476,6 +576,10 @@ footer {
 
     main {
         padding: 28px 25px;
+    }
+
+    .voce-sabia {
+        min-height: 320px;
     }
 }
 
@@ -531,392 +635,37 @@ footer {
         gap: 16px;
     }
 
-    .grafico,
-    .eventos,
+    .monitoramento,
+    .voce-sabia,
     .dicas {
         padding: 18px;
-        border-radius: 13px;
     }
 
-    .titulo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 13px;
+    .voce-sabia-numero {
+        font-size: 35px;
     }
 
-    .titulo h3,
-    .titulo-eventos h3,
-    .dicas h3 {
-        font-size: 17px;
-    }
-
-    .titulo button {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .grafico-area {
-        height: 240px;
-        padding: 10px;
-    }
-
-    .dicas {
-        margin-top: 18px;
+    .voce-sabia-conteudo h3 {
+        font-size: 16px;
     }
 
     .dicas-grid {
         grid-template-columns: 1fr;
-        gap: 13px;
+        gap: 14px;
     }
 
     .dica-card {
         padding: 20px;
     }
-
-    footer {
-        margin-top: 24px;
-        padding: 18px 14px;
-    }
 }
-
-/* TELAS MUITO PEQUENAS */
-
-@media (max-width: 360px) {
-    .logo h2 {
-        font-size: 18px;
-    }
-
-    .card,
-    .grafico,
-    .eventos,
-    .dicas {
-        padding: 16px;
-    }
-
-    .card h1 {
-        font-size: 25px;
-    }
-
-    .grafico-area {
-        height: 210px;
-        padding: 7px;
-    }
-
-    .evento {
-        padding: 12px;
-    }
-}
-
-/* ACESSIBILIDADE: REDUZ MOVIMENTOS */
 
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-    }
-}
-
-html,
-body {
-    width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-}
-
-body {
-    overflow-wrap: break-word;
-}
-
-main,
-header,
-footer,
-section,
-.dashboard,
-.cards,
-.card,
-.grafico,
-.eventos,
-.dicas,
-.dica-card {
-    min-width: 0;
-    max-width: 100%;
-}
-
-/* NOTEBOOKS E TABLETS GRANDES */
-@media (max-width: 1100px) {
-    header {
-        padding: 18px 25px;
-        flex-wrap: wrap;
-    }
-
-    main {
-        padding: 25px;
-    }
-
-    .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .dashboard {
-        grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr);
-        gap: 16px;
-    }
-
-    .grafico,
-    .eventos,
-    .dicas {
-        padding: 20px;
-    }
-
-    .dicas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* TABLETS */
-@media (max-width: 850px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 18px;
-    }
-
-    .logo {
-        align-items: center;
-    }
-
-    .status {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .status-card {
-        flex: 1 1 200px;
-        justify-content: center;
-    }
-
-    main {
-        padding: 22px;
-    }
-
-    .dashboard {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .grafico-area {
-        height: 300px;
-    }
-
-    .titulo {
-        flex-wrap: wrap;
-    }
-
-    .eventos {
-        width: 100%;
-    }
-}
-
-/* CELULARES */
-@media (max-width: 600px) {
-    header {
-        padding: 22px 16px;
-        gap: 16px;
-    }
-
-    .logo h2 {
-        font-size: 20px;
-    }
-
-    .logo span {
-        font-size: 11px;
-    }
-
-    .status {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
-    }
-
-    .status-card {
-        width: 100%;
-        padding: 12px 14px;
-        font-size: 12px;
-    }
-
-    main {
-        padding: 18px 13px;
-    }
-
-    .cards {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 13px;
-    }
-
-    .card {
-        padding: 21px;
-    }
-
-    .card h1 {
-        font-size: 27px;
-    }
-
-    .dashboard {
-        margin-top: 18px;
-        gap: 15px;
-    }
-
-    .grafico,
-    .eventos,
-    .dicas {
-        padding: 17px 14px;
-        border-radius: 13px;
-    }
-
-    .titulo {
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .titulo h3,
-    .titulo-eventos h3,
-    .dicas h3 {
-        font-size: 17px;
-    }
-
-    .titulo button {
-        width: 100%;
-        max-width: 100%;
-        padding: 12px;
-    }
-
-    .grafico-area {
-        width: 100%;
-        height: 250px;
-        padding: 8px;
-    }
-
-    #graficoSemanal {
-        display: block;
-        max-width: 100%;
-    }
-
-    .evento {
-        padding: 13px 11px;
-        font-size: 12px;
-    }
-
-    .evento small {
-        font-size: 10px;
-    }
-
-    .dicas {
-        margin-top: 18px;
-    }
-
-    .dicas-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 12px;
-    }
-
-    .dica-card {
-        padding: 19px;
-    }
-
-    .dica-card h4 {
-        font-size: 15px;
-    }
-
-    .dica-card p {
-        font-size: 13px;
-    }
-
-    footer {
-        padding: 18px 13px;
-        font-size: 11px;
-        margin-top: 24px;
-    }
-}
-
-/* CELULARES PEQUENOS */
-@media (max-width: 380px) {
-    header {
-        padding: 20px 12px;
-    }
-
-    .logo h2 {
-        font-size: 18px;
-    }
-
-    main {
-        padding: 15px 10px;
-    }
-
-    .card,
-    .grafico,
-    .eventos,
-    .dicas {
-        padding: 15px 12px;
-    }
-
-    .card h1 {
-        font-size: 24px;
-    }
-
-    .card i {
-        font-size: 21px;
-    }
-
-    .grafico-area {
-        height: 220px;
-        padding: 5px;
-    }
-
-    .evento {
-        gap: 7px;
-    }
-
-    .dica-card {
-        padding: 16px;
-    }
-}
-
-/* PAISAGEM NO CELULAR */
-@media (max-width: 850px) and (orientation: landscape) {
-    .status {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .status-card {
-        flex: 1 1 180px;
-    }
-
-    .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .dashboard {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .dicas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* ACESSIBILIDADE */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
+        transition-duration: 0.01ms !important;
     }
 }
