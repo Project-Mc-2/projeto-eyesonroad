@@ -1,0 +1,10 @@
+services:
+  eyesonroad-api:
+    build: ../backend/eyesonroad
+    container_name: eyesonroad-api
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8088:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -4,6 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 import com.projeto.eyesonroad.entities.Usuario;
 import com.projeto.eyesonroad.repositories.UsuarioRepository;
 import com.projeto.eyesonroad.repositories.CarroRepository;
@@ -26,13 +28,13 @@ public class UsuarioService {
 
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado."));
     }
 
     public Usuario salvar(Usuario usuario) {
         Usuario usuarioExistente = usuarioRepository.findByLogin(usuario.getLogin());
         if (usuarioExistente != null) {
-            throw new RuntimeException("Já existe usuário com este login.");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Já existe usuário com este login.");
         }
 
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
@@ -67,12 +69,12 @@ public class UsuarioService {
     public Usuario autenticar(String login, String senha) {
         Usuario usuario = usuarioRepository.findByLogin(login);
         if (usuario == null) {
-            throw new RuntimeException("Usuário não encontrado.");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas.");
         }
 
-        boolean senhaValida = passwordEncoder.matches(senha, usuario.getSenha());
+        boolean senhaValida = senha != null && passwordEncoder.matches(senha, usuario.getSenha());
         if (!senhaValida) {
-            throw new RuntimeException("Senha inválida.");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas.");
         }
 
         return usuario;

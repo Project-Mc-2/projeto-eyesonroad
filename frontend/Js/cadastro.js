@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:8080/usuarios";
+const API_URL = window.EYESONROAD_API_ORIGIN + "/usuarios";
 
 const form = document.getElementById("loginForm");
 const erroMsg = document.getElementById("erroMsg");
@@ -55,7 +55,7 @@ form.addEventListener("submit", async function(event) {
     botao.textContent = "CADASTRANDO...";
 
     try {
-        const response = await fetch(API_URL, {
+        const response = await window.eyesFetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

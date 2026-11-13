@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import math
+import os
 import sys
 from collections import deque
 import threading
@@ -125,6 +127,25 @@ def log_event(event: str, ear: float | None, mouth_ratio: float | None) -> None:
             f"{ear:.3f}" if ear is not None else "",
             f"{mouth_ratio:.3f}" if mouth_ratio is not None else "",
         ])
+    api_url = os.getenv("EYESONROAD_API_URL", "").rstrip("/")
+    api_key = os.getenv("EYESONROAD_API_KEY", "")
+    user_id = os.getenv("EYESONROAD_USER_ID", "")
+    if api_url and api_key and user_id.isdigit():
+        def send_alert() -> None:
+            tipo = "sonolencia" if "olhos" in event.lower() else "atencao"
+            payload = json.dumps({
+                "usuarioId": int(user_id), "tipo": tipo, "mensagem": event
+            }).encode("utf-8")
+            request = urllib.request.Request(
+                api_url + "/api/alertas", data=payload,
+                headers={"Content-Type": "application/json", "X-API-Key": api_key},
+                method="POST")
+            try:
+                with urllib.request.urlopen(request, timeout=3):
+                    pass
+            except Exception as exc:
+                print("Falha ao enviar alerta para a API:", exc)
+        threading.Thread(target=send_alert, daemon=True).start()
 
 
 def play_alarm() -> None:

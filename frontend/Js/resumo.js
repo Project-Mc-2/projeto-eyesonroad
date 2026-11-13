@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:8080/api/alertas";
+const API_URL = window.EYESONROAD_API_ORIGIN + "/api/alertas";
 
 const nomeMotoristaElemento = document.getElementById("nomeMotorista");
 const totalAlertasElemento = document.getElementById("totalAlertas");
@@ -238,7 +238,7 @@ function atualizarIndicadorAPI(conectado) {
 
 async function buscarAlertas() {
     try {
-        const resposta = await fetch(API_URL);
+        const resposta = await window.eyesFetch(API_URL);
 
         if (!resposta.ok) {
             throw new Error("Não foi possível buscar os alertas.");

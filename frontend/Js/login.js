@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:8080/usuarios/login";
+const API_URL = window.EYESONROAD_API_ORIGIN + "/usuarios/login";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -23,28 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const dadosLogin = {
-            nome: "Usuario Temporario",
-            login: emailDigitado,
-            senha: senhaDigitada,
-            email: emailDigitado,
-            telefone: "11999999999",
-            dataNascimento: "2000-01-01",
-            cpf: "00000000000",
-            tipo: "MOTORISTA",
-            carro: {
-                marca: "N/A",
-                modelo: "N/A",
-                placa: "XXX0000",
-                ano: 2026
-            }
-        };
+        const dadosLogin = { login: emailDigitado, senha: senhaDigitada };
 
         botao.disabled = true;
         botao.textContent = "ENTRANDO...";
 
         try {
-            const response = await fetch(API_URL, {
+            const response = await window.eyesFetch(API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

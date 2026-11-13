@@ -3,6 +3,7 @@ package com.projeto.eyesonroad.entities;
 import java.time.LocalDate;
 import com.projeto.eyesonroad.enums.TipoUsuario;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,6 +35,7 @@ public class Usuario {
     @Column(nullable = false)
     @NotBlank(message="A senha é obrigatória.")
     @Size(min=5, message="A senha deve ter no mínimo 5 caracteres.")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
     
     @NotBlank(message = "O login é obrigatório")
