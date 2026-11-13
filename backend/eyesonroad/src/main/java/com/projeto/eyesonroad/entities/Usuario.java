@@ -20,6 +20,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -64,6 +65,7 @@ public class Usuario {
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "carro_id", referencedColumnName = "idCarro")
+    @Valid
     private Carro carro;
 
     public Usuario() {

@@ -8,16 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import com.projeto.eyesonroad.entities.Usuario;
 import com.projeto.eyesonroad.repositories.UsuarioRepository;
-import com.projeto.eyesonroad.repositories.CarroRepository;
+import com.projeto.eyesonroad.enums.TipoUsuario;
 
 @Service
 public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private CarroRepository carroRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -40,10 +37,9 @@ public class UsuarioService {
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
 
-        // Garante que se um carro foi enviado aninhado, ele seja salvo no banco primeiro
-        if (usuario.getCarro() != null && usuario.getCarro().getIdCarro() == null) {
-            carroRepository.save(usuario.getCarro());
-        }
+        usuario.setId(null);
+        usuario.setTipo(TipoUsuario.MOTORISTA);
+        if (usuario.getCarro() != null) usuario.getCarro().setIdCarro(null);
 
         return usuarioRepository.save(usuario);
     }
