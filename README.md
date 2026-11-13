@@ -38,7 +38,7 @@ Detecção dos olhos e bocejos
    ↓
 Identificação de sonolência
    ↓
-Olhos fechados por 5 segundos
+Olhos fechados por 2 segundos
    ↓
 Alarme
    ↓
