@@ -76,6 +76,21 @@ Se houver mais de uma câmera, tente usar a segunda:
 
 ## Registros de alertas
 
+Para enviar os alertas ao painel hospedado, configure estas variáveis no terminal
+antes de iniciar o programa. O ID é o campo `id` retornado no login da conta.
+A chave de API deve ser fornecida pelo administrador do servidor e mantida fora
+do repositório:
+
+```bat
+set EYESONROAD_API_URL=http://api.eyesonroad.lab
+set EYESONROAD_USER_ID=ID_DA_CONTA
+set EYESONROAD_API_KEY=CHAVE_FORNECIDA_PELO_ADMINISTRADOR
+.venv\Scripts\python.exe main.py
+```
+
+O programa continua salvando o CSV localmente. O envio remoto só ocorre quando
+as três variáveis estão preenchidas.
+
 Os eventos ficam em `dados\alertas.csv`, que pode ser aberto no Excel. O arquivo registra data/hora, tipo de evento e medidas calculadas; não grava o vídeo nem armazena imagens.
 
 Eventos registrados:
